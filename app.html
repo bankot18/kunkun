@@ -1,0 +1,1374 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ENCO (Entry CKG Otomatis) v1.0.0</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Orbitron:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap"
+    />
+    <link rel="stylesheet" href="src/styles/popup.css" />
+    <link rel="stylesheet" href="app.css" />
+  </head>
+  <body class="enco-desktop-body">
+    <!-- ── TOPBAR NAVIGASI DESKTOP NATIVE ────────────────────── -->
+    <header id="enco-topbar" class="enco-topbar">
+      <!-- Sisi Kiri: Profil User, Toggle Panel Bot (Simbol Saja), Logout (Simbol Saja) -->
+      <div class="topbar-left">
+        <!-- Badge Profil Petugas -->
+        <div class="topbar-user-card" id="topbar-user-card">
+          <div class="topbar-user-avatar" id="top-user-avatar">M</div>
+          <div class="topbar-user-details">
+            <div class="topbar-user-name" id="top-user-name">Mochamad Fauzie, S.Gz</div>
+            <div class="topbar-user-meta">
+              <span class="topbar-user-role-badge" id="top-user-role">Admin</span>
+              <span class="topbar-user-instansi" id="top-user-instansi">Puskesmas Banjaran Kota</span>
+              <span class="topbar-user-quota-badge" id="top-user-quota" style="display: none;" title="Sisa Kuota Entry Hari Ini">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align:middle; margin-right:2px;">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="12 6 12 12 16 14"></polyline>
+                </svg>
+                <span id="top-quota-val">200 / 200</span>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div class="topbar-divider"></div>
+
+        <!-- Toggle Panel Bot (Simbol Saja) -->
+        <button id="nav-btn-toggle-bot" class="topbar-btn topbar-btn-icon topbar-btn-toggle active" title="Tampilkan / Sembunyikan Panel Bot">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+            <line x1="15" y1="3" x2="15" y2="21"></line>
+          </svg>
+        </button>
+
+        <!-- Logout Button (Simbol Saja) -->
+        <button id="nav-btn-logout" class="topbar-btn topbar-btn-icon topbar-btn-danger" title="Keluar Akun">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+            <polyline points="16 17 21 12 16 7"></polyline>
+            <line x1="21" y1="12" x2="9" y2="12"></line>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Sisi Tengah: Logo ENCO & Subtitle ENTRY CKG OTOMATIS (Persis Mockup) -->
+      <div class="topbar-center">
+        <div class="topbar-center-badge">
+          <div class="enco-brand-box">
+            <img src="icons/icon48.png" alt="ENCO" class="topbar-center-logo" />
+            <span class="topbar-center-title">ENCO</span>
+          </div>
+          <span class="topbar-center-subtitle">ENTRY CKG OTOMATIS</span>
+        </div>
+      </div>
+
+      <!-- Sisi Kanan: Tombol Navigasi Portal Sehat Indonesiaku -->
+      <div class="topbar-right">
+        <button id="nav-btn-home" class="topbar-btn" title="Kembali ke Beranda Sehat Indonesiaku">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+          </svg>
+          <span>Beranda</span>
+        </button>
+
+        <button id="nav-btn-back" class="topbar-btn topbar-btn-icon" title="Kembali (Alt+Left)">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+          </svg>
+        </button>
+
+        <button id="nav-btn-forward" class="topbar-btn topbar-btn-icon" title="Maju (Alt+Right)">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </button>
+
+        <button id="nav-btn-reload" class="topbar-btn topbar-btn-reload" title="Refresh Web Sehat Indonesiaku (F5)">
+          <svg id="nav-reload-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="23 4 23 10 17 10"></polyline>
+            <polyline points="1 20 1 14 7 14"></polyline>
+            <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path>
+          </svg>
+          <span>Refresh Web</span>
+        </button>
+
+        <button id="nav-btn-dark-mode" class="topbar-btn" title="Mode Redup Web ASIK (Pelindung Mata agar tidak silau)">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+          <span id="dark-mode-label">Mode Redup</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- ── WORKSPACE 3-KOLOM (KIRI: MENU | TENGAH: ASIK | KANAN: KONTEN BOT) ── -->
+    <main id="enco-workspace" class="enco-workspace">
+      <!-- 1. SISI PALING KIRI: Menu Navigasi Tab Vertikal -->
+      <aside id="app-nav-sidebar" class="app-nav-sidebar">
+        <nav class="tab-nav">
+          <button class="tab-nav__btn tab-nav__btn--active" data-tab="pendaftaran" title="Pendaftaran Pasien">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+              <circle cx="8.5" cy="7" r="4"></circle>
+              <line x1="20" y1="8" x2="20" y2="14"></line>
+              <line x1="23" y1="11" x2="17" y2="11"></line>
+            </svg>
+            <span>PENDAFTARAN</span>
+          </button>
+
+          <button class="tab-nav__btn" data-tab="konfirmasi-hadir" title="Konfirmasi Kehadiran Pasien">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+              <polyline points="22 4 12 14.01 9 11.01"></polyline>
+            </svg>
+            <span>KONFIRMASI HADIR</span>
+          </button>
+
+          <button class="tab-nav__btn" data-tab="pelayanan-instan" title="Data & Pelayanan Pasien">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+              <circle cx="9" cy="7" r="4"></circle>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+            </svg>
+            <span>PASIEN</span>
+          </button>
+
+          <button class="tab-nav__btn" data-tab="otomasi" title="Otomasi Pelayanan & Skrining">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+            </svg>
+            <span>PELAYANAN</span>
+          </button>
+
+          <button class="tab-nav__btn" data-tab="bnba-umum" title="BNBA Kategori Umum">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="18" y1="20" x2="18" y2="10"></line>
+              <line x1="12" y1="20" x2="12" y2="4"></line>
+              <line x1="6" y1="20" x2="6" y2="14"></line>
+            </svg>
+            <span>BNBA UMUM</span>
+          </button>
+
+          <button class="tab-nav__btn" data-tab="bnba-sekolah" title="BNBA Kategori Sekolah">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+              <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+            </svg>
+            <span>BNBA SEKOLAH</span>
+          </button>
+
+          <button class="tab-nav__btn" data-tab="tools" title="Tools & Utilitas">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="3"></circle>
+              <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+            </svg>
+            <span>TOOLS</span>
+          </button>
+
+          <a
+            id="btn-control-panel"
+            href="#"
+            class="tab-nav__btn tab-nav__btn--control-panel"
+            title="Buka Control Panel di Layar Utama (Kiri)"
+          >
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="4" y1="21" x2="4" y2="14"></line>
+              <line x1="4" y1="10" x2="4" y2="3"></line>
+              <line x1="12" y1="21" x2="12" y2="12"></line>
+              <line x1="12" y1="8" x2="12" y2="3"></line>
+              <line x1="20" y1="21" x2="20" y2="16"></line>
+              <line x1="20" y1="12" x2="20" y2="3"></line>
+              <line x1="1" y1="14" x2="7" y2="14"></line>
+              <line x1="9" y1="8" x2="15" y2="8"></line>
+              <line x1="17" y1="16" x2="23" y2="16"></line>
+            </svg>
+            <span>CONTROL PANEL</span>
+          </a>
+        </nav>
+      </aside>
+
+      <!-- 2. SISI TENGAH: Portal Website Sehat Indonesiaku -->
+      <section id="kemkes-panel" class="kemkes-panel">
+        <!-- Loading Bar Indikator Halaman -->
+        <div id="kemkes-loading-bar" class="kemkes-loading-bar"></div>
+        <webview
+          id="kemkesView"
+          src="https://sehatindonesiaku.kemkes.go.id/"
+          partition="persist:kemkes"
+          preload="./preload-kemkes.js"
+          allowpopups
+          class="kemkes-webview"
+        ></webview>
+      </section>
+
+      <!-- Resizer Splitter Bar (Bisa digeser pengguna) -->
+      <div id="app-splitter" class="app-splitter" title="Geser ke kiri / kanan untuk menyesuaikan lebar panel">
+        <div class="splitter-handle"></div>
+      </div>
+
+      <!-- 3. SISI PALING KANAN: Panel Konten & Form Bot ENCO -->
+      <aside id="bot-panel" class="bot-panel">
+        <div id="main-screen" style="display: flex !important; width: 100%; height: 100%;">
+      <div class="popup">
+        <div class="popup-inner">
+        <header class="bot-panel-top-bar">
+          <!-- Dual-Pill Ping Connection Card (Persis Mockup di Bagian Paling Atas Panel Bot) -->
+          <div id="ping-connection-box" class="ping-connection-bar">
+            <!-- Ping Item 1: Google -->
+            <div class="ping-pill" id="ping-dns">
+              <span class="ping-dot live-pulse" id="ping-dot-dns"></span>
+              <div class="ping-text">
+                <span class="ping-label">Google</span>
+                <span class="ping-value" id="ping-val-dns">25 ms</span>
+              </div>
+            </div>
+
+            <!-- Ping Item 2: Sehat Indonesiaku -->
+            <div class="ping-pill" id="ping-asik" style="cursor: pointer;" title="Buka / Kembali ke Beranda Sehat Indonesiaku">
+              <span class="ping-dot live-pulse" id="ping-dot-asik"></span>
+              <div class="ping-text">
+                <span class="ping-label">Sehat Indonesiaku</span>
+                <span class="ping-value" id="ping-val-asik">22 ms</span>
+              </div>
+            </div>
+
+            <!-- Refresh Ping Button -->
+            <button id="btn-refresh-ping" class="ping-refresh-btn" title="Cek Ulang Ping" type="button">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="23 4 23 10 17 10"></polyline>
+                <polyline points="1 20 1 14 7 14"></polyline>
+                <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path>
+              </svg>
+            </button>
+          </div>
+
+          <!-- Hidden Container: Menjaga kompatibilitas DOM ID tanpa memunculkan visual duplikat -->
+          <div id="legacy-hidden-controls" style="display: none !important;">
+            <button id="btn-window-close-top" type="button"></button>
+            <div id="header-branding-link"></div>
+            <div id="user-profile-subbanner">
+              <div id="user-avatar-initial">—</div>
+              <span id="user-full-name">—</span>
+              <span id="user-status-active">—</span>
+              <span id="user-instansi">—</span>
+              <span id="user-expiry-date">—</span>
+              <button id="btn-header-reload" type="button"></button>
+              <button id="btn-header-settings" data-tab="pengaturan" type="button"></button>
+              <button id="btn-signout" type="button"></button>
+              <button id="btn-pin-window" type="button"></button>
+              <button id="btn-close-sidebar" type="button"></button>
+            </div>
+          </div>
+        </header>
+
+        <div id="subscription-wall" hidden>
+          <div class="subscription-wall" style="text-align: center; padding: 24px 16px;">
+            <svg
+              class="subscription-wall__icon"
+              xmlns="http://www.w3.org/2000/svg"
+              width="40"
+              height="40"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="#f87171"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+              style="margin: 0 auto 10px;"
+            >
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+              <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+            </svg>
+            <h3 class="subscription-wall__title" style="color: #f87171; font-size: 15px; font-weight: 700; margin: 0 0 6px;">Akun Tidak Aktif / Terkunci</h3>
+            <p class="subscription-wall__desc" style="color: #cbd5e1; font-size: 12px; margin: 0 0 4px;">
+              Status akun Anda saat ini <strong>Tidak Aktif</strong>.
+            </p>
+            <p class="subscription-wall__desc" style="color: #94a3b8; font-size: 11px; margin: 0;">
+              Semua fitur menu terkunci. Silakan hubungi Administrator untuk mengaktifkan kembali lisensi akun Anda.
+            </p>
+          </div>
+        </div>
+
+        <div class="popup__layout">
+          <div class="popup__content-area">
+            <main class="popup__body">
+          <div id="tab-pendaftaran" class="tab-panel">
+            <!-- Top Control Bar (Dropdown + Action Buttons side by side) -->
+            <div class="hud-toolbar-row">
+              <div class="select__wrapper hud-category-wrapper">
+                <select id="category-filter-pendaftaran" class="field__select hud-pill-select">
+                  <option value="UMUM">Umum</option>
+                  <option value="SEKOLAH">Sekolah</option>
+                </select>
+                <span class="select__arrow">▾</span>
+              </div>
+
+              <!-- Action buttons for Pendaftaran (Template & Upload Excel beside Dropdown) -->
+              <div id="pendaftaran-fab" class="pendaftaran-fab hud-action-pills">
+                <button
+                  id="btn-download-template"
+                  class="hud-btn hud-btn--cyan pendaftaran-fab__btn"
+                  type="button"
+                  title="Download Template Excel"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="12"
+                    height="12"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                    <polyline points="7 10 12 15 17 10" />
+                    <line x1="12" y1="15" x2="12" y2="3" />
+                  </svg>
+                  <span>TEMPLATE</span>
+                </button>
+                <label
+                  id="btn-upload-excel"
+                  class="hud-btn hud-btn--glass pendaftaran-fab__btn"
+                  role="button"
+                  tabindex="0"
+                  title="Upload File Excel"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="12"
+                    height="12"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                    <polyline points="17 8 12 3 7 8" />
+                    <line x1="12" y1="3" x2="12" y2="15" />
+                  </svg>
+                  <span>UPLOAD EXCEL</span>
+                  <input
+                    id="input-excel-file"
+                    type="file"
+                    accept=".xlsx"
+                    style="display: none"
+                  />
+                </label>
+                <button
+                  id="btn-start-otomasi"
+                  class="btn btn--primary pendaftaran-fab__btn"
+                  type="button"
+                  hidden
+                  style="height: 34px; padding: 0 12px; font-size: 11px; border-radius: 8px;"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="13"
+                    height="13"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    aria-hidden="true"
+                  >
+                    <polygon points="5 3 19 12 5 21 5 3" />
+                  </svg>
+                  <span>Start Otomasi</span>
+                </button>
+                <button
+                  id="btn-restart-error"
+                  class="btn btn--warning pendaftaran-fab__btn"
+                  type="button"
+                  hidden
+                  style="height: 34px; padding: 0 12px; font-size: 11px; border-radius: 8px;"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="13"
+                    height="13"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <polyline points="23 4 23 10 17 10" />
+                    <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10" />
+                  </svg>
+                  <span>Restart Error</span>
+                </button>
+                <button
+                  id="btn-stop-otomasi"
+                  class="btn btn--danger pendaftaran-fab__btn"
+                  type="button"
+                  hidden
+                  style="height: 34px; padding: 0 12px; font-size: 11px; border-radius: 8px;"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="13"
+                    height="13"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    aria-hidden="true"
+                  >
+                    <rect x="4" y="4" width="16" height="16" />
+                  </svg>
+                  <span>Stop Otomasi</span>
+                </button>
+              </div>
+            </div>
+
+            <div
+              id="pendaftaran-empty"
+              class="hud-empty-workspace"
+            >
+              <!-- Subtle Circuit Board Watermark Background -->
+              <svg class="hud-circuit-watermark" viewBox="0 0 360 360" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M20 30H80L130 80V140H170" stroke="#00d4ff" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M340 40H270L220 90V160H190" stroke="#00d4ff" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M10 180H70L120 130H160" stroke="#00d4ff" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M350 200H290L230 140H190" stroke="#00d4ff" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M50 340V280L100 230H150V190" stroke="#00d4ff" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M310 330V270L260 220H210V180" stroke="#00d4ff" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="80" cy="30" r="3" fill="#00d4ff"/>
+                <circle cx="130" cy="80" r="3" fill="#00d4ff"/>
+                <circle cx="270" cy="40" r="3" fill="#00d4ff"/>
+                <circle cx="220" cy="90" r="3" fill="#00d4ff"/>
+                <circle cx="70" cy="180" r="3" fill="#00d4ff"/>
+                <circle cx="290" cy="200" r="3" fill="#00d4ff"/>
+                <circle cx="100" cy="230" r="3" fill="#00d4ff"/>
+                <circle cx="260" cy="220" r="3" fill="#00d4ff"/>
+              </svg>
+
+              <!-- Centered Holographic Glass Card -->
+              <div class="hud-ecg-glass-card">
+                <div class="hud-ecg-glass-card-inner">
+                  <svg class="hud-ecg-svg" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 50px; height: 50px;">
+                    <!-- Magenta Aura Underlay -->
+                    <g stroke="#f43f5e" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" class="ecg-blur-magenta">
+                      <path d="M28 38v-4a7 7 0 0 0-7-7H11a7 7 0 0 0-7 7v4"/>
+                      <circle cx="16" cy="15" r="7"/>
+                      <line x1="38" y1="17" x2="38" y2="29"/>
+                      <line x1="44" y1="23" x2="32" y2="23"/>
+                    </g>
+                    <!-- Cyan Glow -->
+                    <g stroke="#00f0ff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="ecg-glow-cyan">
+                      <path d="M28 38v-4a7 7 0 0 0-7-7H11a7 7 0 0 0-7 7v4"/>
+                      <circle cx="16" cy="15" r="7"/>
+                      <line x1="38" y1="17" x2="38" y2="29"/>
+                      <line x1="44" y1="23" x2="32" y2="23"/>
+                    </g>
+                    <!-- White Core -->
+                    <g stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ecg-core-white">
+                      <path d="M28 38v-4a7 7 0 0 0-7-7H11a7 7 0 0 0-7 7v4"/>
+                      <circle cx="16" cy="15" r="7"/>
+                      <line x1="38" y1="17" x2="38" y2="29"/>
+                      <line x1="44" y1="23" x2="32" y2="23"/>
+                    </g>
+                  </svg>
+                </div>
+              </div>
+
+              <h3 class="hud-empty-title">OTOMASI PENDAFTARAN</h3>
+
+              <div class="hud-empty-instruction-card">
+                <p>Download <strong>template</strong>, isi data pasien, lalu upload <strong>Excel</strong> untuk mulai pendaftaran otomatis.</p>
+                <button type="button" class="hud-empty-cta-btn" data-url="https://sehatindonesiaku.kemkes.go.id/ckg-pendaftaran-individu">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                    <polyline points="15 3 21 3 21 9"></polyline>
+                    <line x1="10" y1="14" x2="21" y2="3"></line>
+                  </svg>
+                  <span>Buka Halaman Pendaftaran di Kiri</span>
+                </button>
+              </div>
+            </div>
+            <div id="pendaftaran-list" class="pendaftaran-list" hidden>
+              <div class="pendaftaran-list__header" style="display: flex; flex-direction: column; gap: 6px;">
+                <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px; width: 100%;">
+                  <div style="display: flex; align-items: center; gap: 8px;">
+                    <span
+                      id="pendaftaran-count"
+                      class="pendaftaran-list__count"
+                    ></span>
+                    <div id="pendaftaran-limit-wrapper" style="display: inline-flex; align-items: center; gap: 5px; background: rgba(0, 212, 255, 0.08); border: 1px solid rgba(0, 212, 255, 0.3); border-radius: 6px; padding: 2px 7px;">
+                      <span style="font-size: 11px; font-weight: 700; color: #00d4ff;">Limit:</span>
+                      <input
+                        id="pendaftaran-limit-input"
+                        type="number"
+                        min="1"
+                        placeholder="Semua"
+                        title="Tentukan berapa data yang ingin dientry terlebih dahulu (kosongkan untuk memproses semua)"
+                        style="width: 52px; height: 22px; padding: 1px 4px; font-size: 11px; font-weight: 800; background: rgba(5, 6, 9, 0.85); border: 1px solid rgba(0, 212, 255, 0.4); border-radius: 4px; color: #ffffff; text-align: center; outline: none;"
+                      />
+                      <span style="font-size: 10.5px; font-weight: 600; color: #94a3b8;">data</span>
+                    </div>
+                  </div>
+                  <button
+                    id="btn-clear-excel"
+                    class="btn btn--ghost-danger"
+                    type="button"
+                  >
+                    Hapus
+                  </button>
+                </div>
+                <div class="hud-progress-track" id="pendaftaran-progress-track">
+                  <div class="hud-progress-fill" id="pendaftaran-progress-fill" style="width: 0%;"></div>
+                </div>
+              </div>
+              <ul id="pendaftaran-patients" class="patient-list"></ul>
+            </div>
+          </div>
+
+          <!-- TAB KONFIRMASI HADIR -->
+          <div id="tab-konfirmasi-hadir" class="tab-panel" hidden>
+            <!-- Top Control Bar -->
+            <div class="hud-toolbar-row">
+              <div class="select__wrapper hud-category-wrapper">
+                <select id="category-filter-hadir" class="field__select hud-pill-select">
+                  <option value="SEKOLAH" selected>Sekolah</option>
+                  <option value="UMUM">Umum</option>
+                </select>
+                <span class="select__arrow">▾</span>
+              </div>
+
+              <div class="hud-action-pills">
+                <button id="btn-scan-tabel-hadir" class="hud-btn hud-btn--cyan" type="button">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                  </svg>
+                  <span>SCAN TABEL</span>
+                </button>
+
+                <label id="lbl-upload-excel-hadir" class="hud-btn hud-btn--glass" role="button" tabindex="0" style="cursor: pointer;">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line>
+                  </svg>
+                  <span>EXCEL</span>
+                  <input id="input-excel-file-hadir" type="file" accept=".xlsx" style="display: none;" />
+                </label>
+              </div>
+            </div>
+
+            <!-- School & Class Selector Bar (Konfirmasi Hadir) -->
+            <div id="hadir-school-class-bar" style="display: flex; gap: 6px; margin-bottom: 8px;">
+              <div class="select__wrapper" style="flex: 1.6; min-width: 0;">
+                <select id="select-sekolah-hadir" class="field__select" style="height: 32px; padding: 4px 6px; font-size: 10.5px; font-weight: 600;">
+                  <option value="">— Pilih Sekolah —</option>
+                </select>
+                <span class="select__arrow" style="right: 6px; font-size: 10px;">▾</span>
+              </div>
+
+              <div class="select__wrapper" style="flex: 1; min-width: 0;">
+                <select id="select-kelas-hadir" class="field__select" style="height: 32px; padding: 4px 6px; font-size: 10.5px; font-weight: 600;">
+                  <option value="">— Pilih Kelas —</option>
+                </select>
+                <span class="select__arrow" style="right: 6px; font-size: 10px;">▾</span>
+              </div>
+            </div>
+
+            <!-- Summary Status Bar -->
+            <div id="hadir-summary-bar" style="display: flex; flex-direction: column; gap: 6px; background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(0, 212, 255, 0.25); border-radius: 6px; padding: 6px 10px; margin-bottom: 8px; font-size: 11px;">
+              <div style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
+                <span id="hadir-count-summary" style="font-weight: 600; color: #94a3b8;">
+                  Total: <strong id="cnt-total" style="color: #f8fafc;">0</strong> | 
+                  Belum: <strong id="cnt-pending" style="color: #fbbf24;">0</strong> | 
+                  Hadir: <strong id="cnt-done" style="color: #34d399;">0</strong>
+                </span>
+                <button id="btn-clear-hadir" class="btn btn--ghost-danger" type="button" style="font-size: 10.5px; padding: 2px 6px;">Hapus</button>
+              </div>
+              <div class="hud-progress-track" id="hadir-progress-track">
+                <div class="hud-progress-fill" id="hadir-progress-fill" style="width: 0%;"></div>
+              </div>
+            </div>
+
+            <!-- Action Buttons Bar -->
+            <div id="hadir-action-bar" style="display: flex; gap: 6px; margin-bottom: 8px;" hidden>
+              <button id="btn-start-hadir" class="btn btn--primary" type="button" style="flex: 2; height: 34px; font-size: 11px; font-weight: 700; display: inline-flex; align-items: center; justify-content: center; gap: 5px;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                <span>Mulai Konfirmasi Hadir</span>
+              </button>
+              <button id="btn-stop-hadir" class="btn btn--danger" type="button" hidden style="flex: 2; height: 34px; font-size: 11px; font-weight: 700; display: inline-flex; align-items: center; justify-content: center; gap: 5px;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><rect x="4" y="4" width="16" height="16"/></svg>
+                <span>Hentikan</span>
+              </button>
+              <button id="btn-restart-hadir-error" class="btn btn--warning" type="button" hidden style="flex: 1; height: 34px; font-size: 11px; font-weight: 700;">
+                <span>Ulangi Error</span>
+              </button>
+            </div>
+
+            <!-- Empty Placeholder -->
+            <div id="hadir-empty" class="hud-empty-workspace">
+              <!-- Subtle Circuit Board Watermark Background -->
+              <svg class="hud-circuit-watermark" viewBox="0 0 360 360" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M20 30H80L130 80V140H170" stroke="#00d4ff" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M340 40H270L220 90V160H190" stroke="#00d4ff" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M10 180H70L120 130H160" stroke="#00d4ff" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M350 200H290L230 140H190" stroke="#00d4ff" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M50 340V280L100 230H150V190" stroke="#00d4ff" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M310 330V270L260 220H210V180" stroke="#00d4ff" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="80" cy="30" r="3" fill="#00d4ff"/>
+                <circle cx="130" cy="80" r="3" fill="#00d4ff"/>
+                <circle cx="270" cy="40" r="3" fill="#00d4ff"/>
+                <circle cx="220" cy="90" r="3" fill="#00d4ff"/>
+                <circle cx="70" cy="180" r="3" fill="#00d4ff"/>
+                <circle cx="290" cy="200" r="3" fill="#00d4ff"/>
+                <circle cx="100" cy="230" r="3" fill="#00d4ff"/>
+                <circle cx="260" cy="220" r="3" fill="#00d4ff"/>
+              </svg>
+
+              <!-- Centered Holographic Glass Card -->
+              <div class="hud-ecg-glass-card">
+                <div class="hud-ecg-glass-card-inner">
+                  <svg class="hud-ecg-svg" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 48px; height: 48px;">
+                    <!-- Magenta Aura Underlay -->
+                    <g stroke="#f43f5e" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" class="ecg-blur-magenta">
+                      <path d="M42 22.08V24a18 18 0 1 1-10.67-16.45"/>
+                      <polyline points="42 8 24 26.02 18 20.02"/>
+                    </g>
+                    <!-- Cyan Glow -->
+                    <g stroke="#00f0ff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="ecg-glow-cyan">
+                      <path d="M42 22.08V24a18 18 0 1 1-10.67-16.45"/>
+                      <polyline points="42 8 24 26.02 18 20.02"/>
+                    </g>
+                    <!-- White Core -->
+                    <g stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ecg-core-white">
+                      <path d="M42 22.08V24a18 18 0 1 1-10.67-16.45"/>
+                      <polyline points="42 8 24 26.02 18 20.02"/>
+                    </g>
+                  </svg>
+                </div>
+              </div>
+
+              <h3 class="hud-empty-title">KONFIRMASI KEHADIRAN</h3>
+
+              <div class="hud-empty-instruction-card">
+                <p>
+                  Buka halaman <strong>Cari/Daftarkan Individu</strong> di web ASIK, pilih Sekolah & Kelas, lalu klik <strong>SCAN TABEL</strong> untuk memindai data dan konfirmasi hadir otomatis.
+                </p>
+                <button type="button" class="hud-empty-cta-btn" data-url="https://sehatindonesiaku.kemkes.go.id/ckg-pendaftaran-anak-sekolah">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                    <polyline points="15 3 21 3 21 9"></polyline>
+                    <line x1="10" y1="14" x2="21" y2="3"></line>
+                  </svg>
+                  <span>Buka Halaman Cari Siswa ASIK di Kiri</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- List of Patients / Students -->
+            <div id="hadir-list" class="pendaftaran-list" hidden>
+              <ul id="hadir-patients" class="patient-list"></ul>
+            </div>
+          </div>
+
+          <div id="tab-otomasi" class="tab-panel" hidden>
+            <form id="ckg-form" class="form" novalidate>
+              <div class="pelayanan-excel-bar hud-toolbar-row" style="display: flex; align-items: center; justify-content: space-between; gap: 6px; margin-bottom: 10px; width: 100%;">
+                <a href="https://docs.google.com/spreadsheets/d/1bhF0e5M25cqWda6HGyR4Afb-zayWst7e5IJcdltxdr8/edit?usp=sharing" 
+                   target="_blank" rel="noopener" class="hud-btn hud-btn--cyan" 
+                   style="flex: 1; height: 32px; padding: 0 6px; font-size: 10.5px; font-weight: 700; display: inline-flex; align-items: center; justify-content: center; gap: 4px; border-radius: 8px; text-decoration: none; white-space: nowrap; box-sizing: border-box;">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
+                  </svg>
+                  <span>TEMPLATE</span>
+                </a>
+                <button id="btn-fetch-top" type="button" class="hud-btn hud-btn--cyan" 
+                   style="flex: 1; height: 32px; padding: 0 6px; font-size: 10.5px; font-weight: 700; display: inline-flex; align-items: center; justify-content: center; gap: 4px; border-radius: 8px; white-space: nowrap; box-sizing: border-box; cursor: pointer;">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/>
+                  </svg>
+                  <span>AMBIL DATA</span>
+                </button>
+                <label class="hud-btn hud-btn--glass" style="flex: 1; height: 32px; padding: 0 6px; font-size: 10.5px; font-weight: 700; display: inline-flex; align-items: center; justify-content: center; gap: 4px; border-radius: 8px; cursor: pointer; white-space: nowrap; box-sizing: border-box;">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/>
+                  </svg>
+                  <span>UPLOAD EXCEL</span>
+                  <input type="file" id="input-pelayanan-excel" accept=".xlsx" style="display: none;" />
+                </label>
+              </div>
+
+              <!-- Content: Holographic Empty State -->
+              <div class="hud-empty-workspace">
+                <svg class="hud-circuit-watermark" viewBox="0 0 360 360" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M20 30H80L130 80V140H170" stroke="#00d4ff" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M340 40H270L220 90V160H190" stroke="#00d4ff" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M10 180H70L120 130H160" stroke="#00d4ff" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M350 200H290L230 140H190" stroke="#00d4ff" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M50 340V280L100 230H150V190" stroke="#00d4ff" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M310 330V270L260 220H210V180" stroke="#00d4ff" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <circle cx="80" cy="30" r="3" fill="#00d4ff"/>
+                  <circle cx="130" cy="80" r="3" fill="#00d4ff"/>
+                  <circle cx="270" cy="40" r="3" fill="#00d4ff"/>
+                  <circle cx="220" cy="90" r="3" fill="#00d4ff"/>
+                  <circle cx="70" cy="180" r="3" fill="#00d4ff"/>
+                  <circle cx="290" cy="200" r="3" fill="#00d4ff"/>
+                  <circle cx="100" cy="230" r="3" fill="#00d4ff"/>
+                  <circle cx="260" cy="220" r="3" fill="#00d4ff"/>
+                </svg>
+
+                <div class="hud-ecg-glass-card">
+                  <div class="hud-ecg-glass-card-inner">
+                    <svg class="hud-ecg-svg" viewBox="0 0 76 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M4 23H18L26 8L36 38L45 15L52 29L57 23H72" stroke="#f43f5e" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" class="ecg-blur-magenta"/>
+                      <path d="M4 23H18L26 8L36 38L45 15L52 29L57 23H72" stroke="#00f0ff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="ecg-glow-cyan"/>
+                      <path d="M4 23H18L26 8L36 38L45 15L52 29L57 23H72" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ecg-core-white"/>
+                    </svg>
+                  </div>
+                </div>
+
+                <h3 class="hud-empty-title">OTOMASI PELAYANAN</h3>
+
+                <div class="hud-empty-instruction-card">
+                  <p>Klik <strong>Ambil Data</strong> untuk memuat data pasien aktif, lalu jalankan otomasi skrining.</p>
+                  <button type="button" class="hud-empty-cta-btn" data-url="https://sehatindonesiaku.kemkes.go.id/ckg-pendaftaran-individu">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                      <polyline points="15 3 21 3 21 9"></polyline>
+                      <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                    <span>Buka Halaman Pelayanan di Kiri</span>
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+
+          <div id="tab-pelayanan-instan" class="tab-panel" hidden>
+            <div id="pelayanan-instan-container">
+              <!-- TOP CONTROL BAR -->
+              <div class="hud-toolbar-row">
+                <div class="select__wrapper hud-category-wrapper">
+                  <select id="category-filter-pelayanan" class="field__select hud-pill-select">
+                    <option value="SEKOLAH" selected>Sekolah</option>
+                    <option value="UMUM">Umum</option>
+                  </select>
+                  <span class="select__arrow">▾</span>
+                </div>
+
+                <div class="hud-action-pills">
+                  <button id="btn-scan-tabel-pelayanan" class="hud-btn hud-btn--cyan" type="button">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                      <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                    <span>SCAN TABEL</span>
+                  </button>
+
+                  <label id="lbl-upload-excel-pelayanan" class="hud-btn hud-btn--glass" role="button" tabindex="0" title="Upload Data Excel">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                      <line x1="12" y1="19" x2="12" y2="5"></line>
+                      <polyline points="5 12 12 5 19 12"></polyline>
+                    </svg>
+                    <span>EXCEL</span>
+                    <input id="input-excel-file-pelayanan" type="file" accept=".xlsx" style="display: none;" />
+                  </label>
+
+                  <button id="btn-download-template-pelayanan" class="hud-btn hud-btn--icon-glass" type="button" title="Download Template Excel">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              <!-- SCHOOL & CLASS SELECTOR BAR (FOR CKG SEKOLAH) -->
+              <div class="hud-filter-row">
+                <div class="select__wrapper hud-search-select-wrapper" style="flex: 1.6;">
+                  <select id="select-sekolah-pelayanan" class="field__select hud-search-select">
+                    <option value="">— Pilih Sekolah —</option>
+                  </select>
+                  <span class="hud-search-icon">🔍</span>
+                </div>
+
+                <div class="select__wrapper hud-search-select-wrapper" style="flex: 1.1;">
+                  <select id="select-kelas-pelayanan" class="field__select hud-search-select">
+                    <option value="">— Pilih Kelas —</option>
+                  </select>
+                  <span class="hud-search-icon">🔍</span>
+                </div>
+              </div>
+
+              <!-- SUMMARY STATUS BAR -->
+              <div class="hud-summary-bar">
+                <div style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
+                  <span class="hud-summary-counts">
+                    Total: <strong class="hud-num-zero">0</strong> | 
+                    Belum: <strong class="hud-num-zero">0</strong> | 
+                    Selesai: <strong class="hud-num-zero">0</strong>
+                  </span>
+                  <div class="hud-summary-actions">
+                    <select id="select-entry-mode" class="hud-summary-mode-select" title="Pilih Mode Kecepatan Entry">
+                      <option value="lambat">Mode Lambat</option>
+                      <option value="normal" selected>Mode Normal</option>
+                      <option value="cepat">Mode Cepat</option>
+                    </select>
+                    <button id="btn-clear-pelayanan-all" class="hud-pill-btn hud-pill-btn--danger" type="button">Hapus</button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- CONTENT: EMPTY PLACEHOLDER -->
+              <div class="hud-empty-workspace">
+                <svg class="hud-circuit-watermark" viewBox="0 0 360 360" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M20 30H80L130 80V140H170" stroke="#00d4ff" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M340 40H270L220 90V160H190" stroke="#00d4ff" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M10 180H70L120 130H160" stroke="#00d4ff" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M350 200H290L230 140H190" stroke="#00d4ff" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M50 340V280L100 230H150V190" stroke="#00d4ff" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M310 330V270L260 220H210V180" stroke="#00d4ff" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <circle cx="80" cy="30" r="3" fill="#00d4ff"/>
+                  <circle cx="130" cy="80" r="3" fill="#00d4ff"/>
+                  <circle cx="270" cy="40" r="3" fill="#00d4ff"/>
+                  <circle cx="220" cy="90" r="3" fill="#00d4ff"/>
+                  <circle cx="70" cy="180" r="3" fill="#00d4ff"/>
+                  <circle cx="290" cy="200" r="3" fill="#00d4ff"/>
+                  <circle cx="100" cy="230" r="3" fill="#00d4ff"/>
+                  <circle cx="260" cy="220" r="3" fill="#00d4ff"/>
+                </svg>
+
+                <div class="hud-ecg-glass-card">
+                  <div class="hud-ecg-glass-card-inner">
+                    <svg class="hud-ecg-svg" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 48px; height: 48px;">
+                      <g stroke="#f43f5e" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" class="ecg-blur-magenta">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                      </g>
+                      <g stroke="#00f0ff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="ecg-glow-cyan">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                      </g>
+                      <g stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ecg-core-white">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                      </g>
+                    </svg>
+                  </div>
+                </div>
+
+                <h3 class="hud-empty-title">DATABASE PASIEN &amp; PELAYANAN</h3>
+
+                <div class="hud-empty-instruction-card">
+                  <p>Pilih <strong>Sekolah &amp; Kelas</strong> di atas, upload <strong>EXCEL</strong>, lalu klik <strong>SCAN TABEL</strong> untuk memfilter dan memuat hanya siswa yang ada di file Excel.</p>
+                  <button type="button" class="hud-empty-cta-btn" data-url="https://sehatindonesiaku.kemkes.go.id/ckg-pendaftaran-anak-sekolah">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                      <polyline points="15 3 21 3 21 9"></polyline>
+                      <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                    <span>Buka Halaman Anak Sekolah di Kiri</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- TAB BNBA UMUM -->
+          <div id="tab-bnba-umum" class="tab-panel" hidden>
+            <div class="bnba-tab-content">
+
+              <!-- HEADER CARD WITH TITLE, BADGE, & QUICK ACTIONS -->
+              <div class="bnba-header-card">
+                <div class="bnba-title-group">
+                  <span style="font-size: 14px;">🗂️</span>
+                  <h3>BNBA CKG UMUM</h3>
+                  <span class="bnba-badge bnba-badge--umum">UMUM</span>
+                </div>
+                <div class="bnba-header-actions">
+                  <button id="btn-open-spreadsheet-umum" type="button" class="bnba-icon-btn" title="Buka Google Spreadsheet BNBA Umum">
+                    <span>📊 Sheet</span>
+                  </button>
+                  <button id="btn-toggle-config-umum" type="button" class="bnba-icon-btn" title="Pengaturan Link Spreadsheet">
+                    <span>⚙️</span>
+                  </button>
+                </div>
+              </div>
+
+              <!-- SETTING SPREADSHEET CARD (BNBA UMUM) - HIDDEN DRAWER -->
+              <div id="bnba-umum-settings-card" hidden style="background: rgba(15, 23, 42, 0.85); border: 1px solid rgba(52, 211, 153, 0.4); border-radius: var(--radius); padding: 10px; box-shadow: var(--shadow-sm);">
+                <div style="font-size: 10.5px; font-weight: 700; color: #34d399; margin-bottom: 6px;">
+                  ⚙️ Pengaturan Integrasi Spreadsheet BNBA UMUM
+                </div>
+                <div id="bnba-umum-config-inputs">
+                  <div class="field" style="margin-bottom: 6px;">
+                    <label style="font-size: 10px; color: #94a3b8; font-weight: 600;">Web App Script URL (GAS):</label>
+                    <input id="input-url-bnba-umum" type="url" class="field__input" placeholder="https://script.google.com/macros/s/.../exec" style="font-size: 10.5px; height: 28px; padding: 4px 8px;" />
+                  </div>
+                  <div class="field" style="margin-bottom: 6px;">
+                    <label style="font-size: 10px; color: #94a3b8; font-weight: 600;">Link Google Spreadsheet View:</label>
+                    <input id="input-url-sheet-umum" type="url" class="field__input" placeholder="https://docs.google.com/spreadsheets/d/..." style="font-size: 10.5px; height: 28px; padding: 4px 8px;" />
+                  </div>
+                  <button id="btn-save-bnba-umum-link" type="button" class="btn btn--primary" style="font-size: 10.5px; padding: 5px 10px; width: 100%; margin-top: 4px;">
+                    💾 Simpan Pengaturan
+                  </button>
+                </div>
+                <div id="bnba-umum-config-info" style="font-size: 9.5px; color: #cbd5e1; word-break: break-all; margin-top: 6px;">
+                  <div><span style="color: #64748b;">Script:</span> <span id="info-url-bnba-umum" style="color: #34d399;">Default Server</span></div>
+                  <div><span style="color: #64748b;">Sheet:</span> <span id="info-sheet-bnba-umum" style="color: #38bdf8;">Belum diatur</span></div>
+                </div>
+              </div>
+
+              <!-- HERO ACTION CARD: AUTO-SCAN (BNBA UMUM) -->
+              <div class="bnba-card bnba-card--umum" id="bnba-auto-scan-card-umum">
+                <div class="bnba-card-label">
+                  <span>⚡ Otomatisasi Rekapitulasi</span>
+                </div>
+                <p style="font-size: 10.5px; color: #94a3b8; margin: 0 0 10px; line-height: 1.4;">
+                  Buka tabel antrean <strong>Pelayanan Umum</strong> di portal ASIK, lalu tekan tombol di bawah untuk menyalin seluruh data ke Spreadsheet & Excel.
+                </p>
+
+                <!-- Hero Start / Stop Action Buttons -->
+                <div style="display: flex; gap: 6px;">
+                  <button id="btn-start-auto-scan-umum" class="bnba-hero-btn bnba-hero-btn--umum" type="button">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                    <span>Mulai Rekap Otomatis</span>
+                  </button>
+                  <button id="btn-stop-auto-scan-umum" class="btn btn--danger" type="button" hidden style="width: 100%; height: 38px; font-size: 11.5px; font-weight: 700; display: inline-flex; align-items: center; justify-content: center; gap: 6px; border-radius: var(--radius);">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><rect x="4" y="4" width="16" height="16"/></svg>
+                    <span>Hentikan Proses</span>
+                  </button>
+                </div>
+
+                <!-- Live Auto-Scan Progress Card -->
+                <div id="auto-scan-progress-box-umum" hidden style="margin-top: 10px; border-top: 1px dashed rgba(255,255,255,0.1); padding-top: 8px;">
+                  <div style="display: flex; justify-content: space-between; font-size: 10.5px; margin-bottom: 4px;">
+                    <span id="auto-scan-label-umum" style="color: #cbd5e1; font-weight: 600;">Memproses antrean...</span>
+                    <span id="auto-scan-count-umum" style="color: #34d399; font-weight: 700;">0/0</span>
+                  </div>
+                  <div class="bnba-progress-track">
+                    <div id="auto-scan-bar-umum" class="bnba-progress-fill--umum"></div>
+                  </div>
+                  <p id="auto-scan-msg-umum" style="font-size: 9.5px; color: #94a3b8; margin: 4px 0 0; word-break: break-all;"></p>
+                </div>
+
+                <!-- Export & Options Bar -->
+                <div class="bnba-export-bar">
+                  <button id="btn-download-excel-bnba-umum" class="bnba-btn-excel" type="button" title="Unduh Rekap Excel (.xlsx)">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                    <span>Unduh Excel Rekap (.xlsx)</span>
+                  </button>
+                </div>
+                <label class="bnba-auto-dl-wrapper">
+                  <input type="checkbox" id="chk-auto-dl-umum" checked />
+                  <span>Otomatis unduh file Excel saat rekap selesai</span>
+                </label>
+              </div>
+
+              <!-- COLLAPSIBLE ACCORDION: MODE DARURAT / SCAN MANUAL 1 PASIEN -->
+              <div style="margin-top: 2px;">
+                <div id="btn-toggle-manual-umum" class="bnba-accordion-toggle">
+                  <span>▸ Mode Darurat: Scan Manual 1 Pasien</span>
+                  <span id="manual-arrow-umum" style="font-size: 9px; color: #64748b;">Klik untuk buka</span>
+                </div>
+
+                <div id="manual-container-umum" hidden style="margin-top: 6px; padding: 8px 10px; background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(255,255,255,0.06); border-radius: var(--radius-sm);">
+                  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-bottom: 6px;">
+                    <button id="btn-scan-identitas-umum" class="btn btn--primary" type="button" style="font-size: 10px; padding: 6px 4px; display: flex; align-items: center; justify-content: center; gap: 4px;">
+                      <span>🪪 Scan Identitas</span>
+                    </button>
+                    <button id="btn-scan-fisik-lab-umum" class="btn" type="button" style="font-size: 10px; padding: 6px 4px; display: flex; align-items: center; justify-content: center; gap: 4px; background: #059669; border: 1px solid #34d399; color: white;">
+                      <span>🩺 Scan Fisik & Lab</span>
+                    </button>
+                  </div>
+
+                  <!-- PREVIEW CARD UMUM -->
+                  <div id="bnba-preview-card-umum" hidden style="background: rgba(15, 23, 42, 0.7); border: 1px solid rgba(52, 211, 153, 0.35); border-radius: 8px; padding: 10px; margin-top: 6px;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 4px; margin-bottom: 6px;">
+                      <span style="font-weight: 700; color: #34d399; font-size: 11.5px;">Preview Data Pasien</span>
+                      <span style="font-size: 9px; padding: 1px 5px; border-radius: 4px; background: #1e293b; color: #34d399; font-weight: 600;">UMUM</span>
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4px; font-size: 10.5px;">
+                      <div><span style="color: #64748b;">Nama:</span> <br/><strong id="preview-nama-umum" style="color: #f8fafc;">—</strong></div>
+                      <div><span style="color: #64748b;">NIK:</span> <br/><strong id="preview-nik-umum" style="color: #f8fafc;">—</strong></div>
+                      <div><span style="color: #64748b;">Tgl Lahir:</span> <br/><span id="preview-tgl-umum" style="color: #cbd5e1;">—</span></div>
+                      <div><span style="color: #64748b;">Umur:</span> <br/><span id="preview-umur-umum" style="color: #cbd5e1;">—</span></div>
+                      <div><span style="color: #64748b;">JK:</span> <br/><span id="preview-jk-umum" style="color: #cbd5e1;">—</span></div>
+                      <div><span style="color: #64748b;">Tiket:</span> <br/><span id="preview-tiket-umum" style="color: #cbd5e1;">—</span></div>
+
+                      <div style="grid-column: span 2; border-top: 1px dashed rgba(255,255,255,0.1); padding-top: 4px; margin-top: 2px;">
+                        <span style="color: #34d399; font-weight: 600; font-size: 10px;">Hasil Fisik & Lab:</span>
+                      </div>
+                      <div><span style="color: #64748b;">BB (kg):</span> <strong id="preview-bb-umum" style="color: #fbbf24;">—</strong></div>
+                      <div><span style="color: #64748b;">TB (cm):</span> <strong id="preview-tb-umum" style="color: #fbbf24;">—</strong></div>
+                      <div><span style="color: #64748b;">LP (cm):</span> <strong id="preview-lp-umum" style="color: #fbbf24;">—</strong></div>
+                      <div><span style="color: #64748b;">Sistol:</span> <strong id="preview-sistol-umum" style="color: #38bdf8;">—</strong></div>
+                      <div><span style="color: #64748b;">Diastol:</span> <strong id="preview-diastol-umum" style="color: #38bdf8;">—</strong></div>
+                      <div><span style="color: #64748b;">Gula:</span> <strong id="preview-gula-umum" style="color: #f472b6;">—</strong></div>
+
+                      <div style="grid-column: span 2; margin-top: 2px;"><span style="color: #64748b;">Status Skrining:</span> <br/><span id="preview-pemeriksaan-umum" style="color: #34d399; font-weight: 600;">—</span></div>
+                    </div>
+
+                    <div style="margin-top: 8px; display: flex; gap: 6px;">
+                      <button id="btn-confirm-sync-bnba-umum" class="btn btn--primary" type="button" style="flex: 2; font-size: 10.5px; padding: 6px 4px;">
+                        ✓ Simpan ke Sheet
+                      </button>
+                      <button id="btn-reset-bnba-data-umum" class="btn" type="button" style="flex: 1; font-size: 10.5px; padding: 6px 4px; background: #334155; border: 1px solid #475569; color: #cbd5e1;">
+                        🔄 Reset
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <p id="bnba-status-umum" class="field__hint" hidden style="margin-top: 4px; font-weight: 500;"></p>
+            </div>
+          </div>
+
+          <!-- TAB BNBA SEKOLAH -->
+          <div id="tab-bnba-sekolah" class="tab-panel" hidden>
+            <div class="bnba-tab-content">
+
+              <!-- HEADER CARD WITH TITLE, BADGE, & QUICK ACTIONS -->
+              <div class="bnba-header-card">
+                <div class="bnba-title-group">
+                  <span style="font-size: 14px;">🏫</span>
+                  <h3>BNBA CKG SEKOLAH</h3>
+                  <span class="bnba-badge bnba-badge--sekolah">UKS</span>
+                </div>
+                <div class="bnba-header-actions">
+                  <button id="btn-open-spreadsheet-sekolah" type="button" class="bnba-icon-btn" title="Buka Google Spreadsheet BNBA Sekolah">
+                    <span>📊 Sheet</span>
+                  </button>
+                  <button id="btn-toggle-config-sekolah" type="button" class="bnba-icon-btn" title="Pengaturan Link Spreadsheet">
+                    <span>⚙️</span>
+                  </button>
+                </div>
+              </div>
+
+              <!-- SETTING SPREADSHEET CARD (BNBA SEKOLAH) - HIDDEN DRAWER -->
+              <div id="bnba-sekolah-settings-card" hidden style="background: rgba(15, 23, 42, 0.85); border: 1px solid rgba(96, 165, 250, 0.4); border-radius: var(--radius); padding: 10px; box-shadow: var(--shadow-sm);">
+                <div style="font-size: 10.5px; font-weight: 700; color: #60a5fa; margin-bottom: 6px;">
+                  ⚙️ Pengaturan Integrasi Spreadsheet BNBA SEKOLAH
+                </div>
+                <div id="bnba-sekolah-config-inputs">
+                  <div class="field" style="margin-bottom: 6px;">
+                    <label style="font-size: 10px; color: #94a3b8; font-weight: 600;">Web App Script URL (GAS):</label>
+                    <input id="input-url-bnba-sekolah" type="url" class="field__input" placeholder="https://script.google.com/macros/s/.../exec" style="font-size: 10.5px; height: 28px; padding: 4px 8px;" />
+                  </div>
+                  <div class="field" style="margin-bottom: 6px;">
+                    <label style="font-size: 10px; color: #94a3b8; font-weight: 600;">Link Google Spreadsheet View:</label>
+                    <input id="input-url-sheet-sekolah" type="url" class="field__input" placeholder="https://docs.google.com/spreadsheets/d/..." style="font-size: 10.5px; height: 28px; padding: 4px 8px;" />
+                  </div>
+                  <button id="btn-save-bnba-sekolah-link" type="button" class="btn btn--primary" style="font-size: 10.5px; padding: 5px 10px; width: 100%; margin-top: 4px;">
+                    💾 Simpan Pengaturan
+                  </button>
+                </div>
+                <div id="bnba-sekolah-config-info" style="font-size: 9.5px; color: #cbd5e1; word-break: break-all; margin-top: 6px;">
+                  <div><span style="color: #64748b;">Script:</span> <span id="info-url-bnba-sekolah" style="color: #60a5fa;">Default Server</span></div>
+                  <div><span style="color: #64748b;">Sheet:</span> <span id="info-sheet-bnba-sekolah" style="color: #38bdf8;">Belum diatur</span></div>
+                </div>
+              </div>
+
+              <!-- TARGET SELECTION CARD (SEKOLAH & KELAS) -->
+              <div class="bnba-card bnba-card--sekolah" style="padding: 10px 12px;">
+                <div class="bnba-card-label">
+                  <span>1. Pilih Sasaran Pemeriksaan</span>
+                </div>
+                <div id="bnba-school-class-bar" style="display: flex; gap: 6px;">
+                  <div class="select__wrapper" style="flex: 1.5; min-width: 0;">
+                    <select id="select-sekolah-bnba" class="field__select" style="height: 32px; padding: 4px 8px; font-size: 10.5px; font-weight: 600;">
+                      <option value="">— Pilih Sekolah —</option>
+                    </select>
+                    <span class="select__arrow" style="right: 6px; font-size: 9px;">▾</span>
+                  </div>
+
+                  <div class="select__wrapper" style="flex: 1.2; min-width: 0;">
+                    <select id="select-kelas-bnba" class="field__select" style="height: 32px; padding: 4px 8px; font-size: 10.5px; font-weight: 600;">
+                      <option value="">— Pilih Kelas —</option>
+                      <option value="__ALL__" style="color: #38bdf8; font-weight: 700;">⚡ Semua Kelas (1 s/d Akhir)</option>
+                    </select>
+                    <span class="select__arrow" style="right: 6px; font-size: 9px;">▾</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- HERO ACTION CARD: AUTO-SCAN (BNBA SEKOLAH) -->
+              <div class="bnba-card bnba-card--sekolah" id="bnba-auto-scan-card-sekolah">
+                <div class="bnba-card-label">
+                  <span>2. Mulai Eksekusi Rekap</span>
+                </div>
+
+                <!-- Hero Action Buttons -->
+                <div style="display: flex; gap: 6px;">
+                  <button id="btn-start-auto-scan-sekolah" class="bnba-hero-btn bnba-hero-btn--sekolah" type="button">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                    <span>Mulai Rekap Otomatis</span>
+                  </button>
+                  <button id="btn-stop-auto-scan-sekolah" class="btn btn--danger" type="button" hidden style="width: 100%; height: 38px; font-size: 11.5px; font-weight: 700; display: inline-flex; align-items: center; justify-content: center; gap: 6px; border-radius: var(--radius);">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><rect x="4" y="4" width="16" height="16"/></svg>
+                    <span>Hentikan Proses</span>
+                  </button>
+                </div>
+
+                <!-- Re-Scan Action Button (if any missed) -->
+                <button id="btn-rescan-sekolah" class="btn" type="button" hidden style="margin-top: 6px; width: 100%; height: 30px; font-size: 10.5px; font-weight: 700; background: rgba(245, 158, 11, 0.2); border: 1.5px solid #f59e0b; color: #fbbf24; display: inline-flex; align-items: center; justify-content: center; gap: 5px; border-radius: var(--radius-sm); box-shadow: 0 0 8px rgba(245, 158, 11, 0.2);" title="Scan ulang khusus siswa yang belum ter-scan">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"></polyline><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path></svg>
+                  <span id="btn-rescan-sekolah-text">Re-Scan (Sisa)</span>
+                </button>
+
+                <!-- Live Auto-Scan Progress Card -->
+                <div id="auto-scan-progress-box-sekolah" hidden style="margin-top: 10px; border-top: 1px dashed rgba(255,255,255,0.1); padding-top: 8px;">
+                  <div style="display: flex; justify-content: space-between; font-size: 10.5px; margin-bottom: 4px;">
+                    <span id="auto-scan-label-sekolah" style="color: #cbd5e1; font-weight: 600;">Memproses antrean...</span>
+                    <span id="auto-scan-count-sekolah" style="color: #60a5fa; font-weight: 700;">0/0</span>
+                  </div>
+                  <div class="bnba-progress-track">
+                    <div id="auto-scan-bar-sekolah" class="bnba-progress-fill--sekolah"></div>
+                  </div>
+                  <p id="auto-scan-msg-sekolah" style="font-size: 9.5px; color: #94a3b8; margin: 4px 0 0; word-break: break-all;"></p>
+
+                  <!-- Audit Summary Box -->
+                  <div id="auto-scan-audit-box-sekolah" hidden style="margin-top: 8px; border-radius: 6px; padding: 6px 8px; font-size: 10px; background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(255, 255, 255, 0.08);">
+                    <div id="audit-success-banner-sekolah" style="display: flex; align-items: center; justify-content: space-between; color: #4ade80; font-weight: 600;">
+                      <span id="audit-success-title-sekolah">✓ Status: Semua data siswa terscan lengkap</span>
+                      <span id="audit-success-count-sekolah" style="background: rgba(74, 222, 128, 0.15); padding: 1px 6px; border-radius: 4px; font-size: 9.5px;">100%</span>
+                    </div>
+                    <div id="audit-warning-banner-sekolah" hidden>
+                      <div id="audit-warning-toggle-sekolah" style="display: flex; align-items: center; justify-content: space-between; color: #fbbf24; font-weight: 600; cursor: pointer;">
+                        <span id="audit-warning-title-sekolah">⚠️ 0 Siswa Terlewat</span>
+                        <span id="audit-warning-arrow-sekolah" style="font-size: 9px; text-decoration: underline; color: #38bdf8;">Lihat Rincian ▾</span>
+                      </div>
+                      <button id="btn-audit-rescan-sekolah" type="button" class="btn" style="margin-top: 6px; width: 100%; height: 26px; font-size: 10px; font-weight: 700; background: linear-gradient(135deg, rgba(245, 158, 11, 0.25), rgba(0, 212, 255, 0.2)); border: 1.5px solid #fbbf24; color: #fef08a; border-radius: 5px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 5px; box-shadow: 0 0 8px rgba(245, 158, 11, 0.25);">
+                        <span>🔄 Re-Scan Sekarang (Hanya Cari Yang Belum)</span>
+                      </button>
+                      <div id="audit-missed-list-sekolah" hidden style="margin-top: 6px; max-height: 120px; overflow-y: auto; background: rgba(0,0,0,0.3); border-radius: 4px; padding: 5px 7px; font-size: 9px; border: 1px solid rgba(251, 191, 36, 0.25); display: flex; flex-direction: column; gap: 4px;"></div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Export & Options Bar -->
+                <div class="bnba-export-bar">
+                  <button id="btn-download-excel-bnba-sekolah" class="bnba-btn-excel" type="button" title="Unduh Rekap Excel (.xlsx)">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                    <span>Unduh Excel Rekap (.xlsx)</span>
+                  </button>
+                </div>
+                <label class="bnba-auto-dl-wrapper">
+                  <input type="checkbox" id="chk-auto-dl-sekolah" checked />
+                  <span>Otomatis unduh file Excel saat rekap selesai</span>
+                </label>
+              </div>
+
+              <!-- COLLAPSIBLE ACCORDION: MODE DARURAT / SCAN MANUAL 1 PASIEN -->
+              <div style="margin-top: 2px;">
+                <div id="btn-toggle-manual-sekolah" class="bnba-accordion-toggle">
+                  <span>▸ Mode Darurat: Scan Manual 1 Siswa</span>
+                  <span id="manual-arrow-sekolah" style="font-size: 9px; color: #64748b;">Klik untuk buka</span>
+                </div>
+
+                <div id="manual-container-sekolah" hidden style="margin-top: 6px; padding: 8px 10px; background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(255,255,255,0.06); border-radius: var(--radius-sm);">
+                  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-bottom: 6px;">
+                    <button id="btn-scan-identitas-sekolah" class="btn btn--primary" type="button" style="font-size: 10px; padding: 6px 4px; display: flex; align-items: center; justify-content: center; gap: 4px;">
+                      <span>🪪 Scan Identitas</span>
+                    </button>
+                    <button id="btn-scan-fisik-lab-sekolah" class="btn" type="button" style="font-size: 10px; padding: 6px 4px; display: flex; align-items: center; justify-content: center; gap: 4px; background: #0284c7; border: 1px solid #38bdf8; color: white;">
+                      <span>🩺 Scan Fisik & Lab</span>
+                    </button>
+                  </div>
+
+                  <!-- PREVIEW CARD SEKOLAH -->
+                  <div id="bnba-preview-card-sekolah" hidden style="background: rgba(15, 23, 42, 0.7); border: 1px solid rgba(96, 165, 250, 0.35); border-radius: 8px; padding: 10px; margin-top: 6px;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 4px; margin-bottom: 6px;">
+                      <span style="font-weight: 700; color: #60a5fa; font-size: 11.5px;">Preview Data Siswa</span>
+                      <span style="font-size: 9px; padding: 1px 5px; border-radius: 4px; background: #1e293b; color: #60a5fa; font-weight: 600;">SEKOLAH</span>
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4px; font-size: 10.5px;">
+                      <div><span style="color: #64748b;">Nama:</span> <br/><strong id="preview-nama-sekolah" style="color: #f8fafc;">—</strong></div>
+                      <div><span style="color: #64748b;">NIK:</span> <br/><strong id="preview-nik-sekolah" style="color: #f8fafc;">—</strong></div>
+                      <div><span style="color: #64748b;">Tgl Lahir:</span> <br/><span id="preview-tgl-sekolah" style="color: #cbd5e1;">—</span></div>
+                      <div><span style="color: #64748b;">Umur:</span> <br/><span id="preview-umur-sekolah" style="color: #cbd5e1;">—</span></div>
+                      <div><span style="color: #64748b;">JK:</span> <br/><span id="preview-jk-sekolah" style="color: #cbd5e1;">—</span></div>
+                      <div><span style="color: #64748b;">Tiket:</span> <br/><span id="preview-tiket-sekolah" style="color: #cbd5e1;">—</span></div>
+                      <div style="grid-column: span 2;"><span style="color: #64748b;">Sekolah:</span> <br/><span id="preview-sekolah-sekolah" style="color: #cbd5e1;">—</span></div>
+
+                      <div style="grid-column: span 2; border-top: 1px dashed rgba(255,255,255,0.1); padding-top: 4px; margin-top: 2px;">
+                        <span style="color: #60a5fa; font-weight: 600; font-size: 10px;">Hasil Fisik & Lab:</span>
+                      </div>
+                      <div><span style="color: #64748b;">BB (kg):</span> <strong id="preview-bb-sekolah" style="color: #fbbf24;">—</strong></div>
+                      <div><span style="color: #64748b;">TB (cm):</span> <strong id="preview-tb-sekolah" style="color: #fbbf24;">—</strong></div>
+                      <div><span style="color: #64748b;">Sistol:</span> <strong id="preview-sistol-sekolah" style="color: #38bdf8;">—</strong></div>
+                      <div><span style="color: #64748b;">Diastol:</span> <strong id="preview-diastol-sekolah" style="color: #38bdf8;">—</strong></div>
+                      <div><span style="color: #64748b;">Gula:</span> <strong id="preview-gula-sekolah" style="color: #f472b6;">—</strong></div>
+                      <div><span style="color: #64748b;">HB:</span> <strong id="preview-hb-sekolah" style="color: #f472b6;">—</strong></div>
+
+                      <div style="grid-column: span 2; margin-top: 2px;"><span style="color: #64748b;">Status Skrining:</span> <br/><span id="preview-pemeriksaan-sekolah" style="color: #60a5fa; font-weight: 600;">—</span></div>
+                    </div>
+
+                    <div style="margin-top: 8px; display: flex; gap: 6px;">
+                      <button id="btn-confirm-sync-bnba-sekolah" class="btn btn--primary" type="button" style="flex: 2; font-size: 10.5px; padding: 6px 4px;">
+                        ✓ Simpan ke Sheet
+                      </button>
+                      <button id="btn-reset-bnba-data-sekolah" class="btn" type="button" style="flex: 1; font-size: 10.5px; padding: 6px 4px; background: #334155; border: 1px solid #475569; color: #cbd5e1;">
+                        🔄 Reset
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- CARD RIWAYAT / LOG SCAN SEBELUMNYA -->
+              <div id="bnba-scan-history-card-sekolah" style="background: rgba(15, 23, 42, 0.75); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: var(--radius); padding: 8px 12px; margin-top: 6px;">
+                <div style="display: flex; justify-content: space-between; align-items: center; cursor: pointer;" id="btn-toggle-scan-history-sekolah">
+                  <div style="display: flex; align-items: center; gap: 6px;">
+                    <span style="font-size: 12px;">📜</span>
+                    <span style="font-weight: 700; color: #cbd5e1; font-size: 10.5px;">Riwayat Scan Sebelumnya</span>
+                    <span id="history-count-badge-sekolah" style="font-size: 9px; padding: 1px 5px; border-radius: 10px; background: #1e293b; color: #60a5fa; font-weight: 700;">0</span>
+                  </div>
+                  <span id="history-toggle-arrow-sekolah" style="font-size: 10px; color: #94a3b8;">▾</span>
+                </div>
+
+                <div id="history-content-container-sekolah" hidden style="margin-top: 8px; border-top: 1px dashed rgba(255,255,255,0.1); padding-top: 8px;">
+                  <div id="history-items-list-sekolah" style="max-height: 160px; overflow-y: auto; display: flex; flex-direction: column; gap: 6px;">
+                    <div style="font-size: 10px; color: #64748b; text-align: center; padding: 8px 0;">
+                      Belum ada riwayat scan sebelumnya.
+                    </div>
+                  </div>
+
+                  <div style="margin-top: 8px; display: flex; justify-content: flex-end;">
+                    <button id="btn-clear-history-sekolah" type="button" class="btn" style="font-size: 9px; padding: 3px 8px; background: transparent; border: 1px solid rgba(239,68,68,0.4); color: #f87171; border-radius: 4px; cursor: pointer;">
+                      🗑️ Bersihkan Riwayat
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <p id="bnba-status-sekolah" class="field__hint" hidden style="margin-top: 4px; font-weight: 500;"></p>
+            </div>
+          </div>
+
+          <div id="tab-pengaturan" class="tab-panel" hidden>
+            <div id="settings-panel" class="form">
+              <!-- Settings are injected by popup.js -->
+            </div>
+          </div>
+          <div id="tab-tools" class="tab-panel" hidden>
+            <div class="tools-container">
+
+              <!-- CARD 1: ISI FORM -->
+              <div class="tools-card tools-card--cyan">
+                <div class="tools-card__header">
+                  <div class="tools-card__title-group">
+                    <div class="tools-card__icon-wrapper tools-card__icon--cyan">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+                        <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+                      </svg>
+                    </div>
+                    <div>
+                      <h4 class="tools-card__title">Isi Form Aktif</h4>
+                      <span class="tools-card__badge tools-card__badge--cyan">AUTO INPUT</span>
+                    </div>
+                  </div>
+                </div>
+
+                <p class="tools-card__desc">
+                  Isi otomatis form pemeriksaan yang sedang terbuka di tab aktif tanpa melakukan submit langsung.
+                </p>
+
+                <div class="tools-card__tip">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#00d4ff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0;">
+                    <circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/>
+                  </svg>
+                  <span>Gunakan setelah klik <strong>Input data</strong> & muat via <strong>Ambil Data</strong>.</span>
+                </div>
+
+                <div style="margin-top: 10px;">
+                  <button
+                    id="btn-fill-form"
+                    class="btn btn--primary tools-card__btn"
+                    type="button"
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;">
+                      <path d="M12 20h9"/>
+                      <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/>
+                    </svg>
+                    <span>Isi Form Sekarang</span>
+                  </button>
+                </div>
+              </div>
+
+              <!-- CARD 2: PELAYANAN NAKES -->
+              <div class="tools-card tools-card--pink">
+                <div class="tools-card__header">
+                  <div class="tools-card__title-group">
+                    <div class="tools-card__icon-wrapper tools-card__icon--pink">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                        <polyline points="22 4 12 14.01 9 11.01"/>
+                      </svg>
+                    </div>
+                    <div>
+                      <h4 class="tools-card__title">Pelayanan Nakes</h4>
+                      <span class="tools-card__badge tools-card__badge--pink">TOGGLE OFF</span>
+                    </div>
+                  </div>
+                </div>
+
+                <p class="tools-card__desc">
+                  Matikan (uncheck) centang pelayanan oleh tenaga kesehatan yang tidak diperlukan secara otomatis pada halaman yang sedang aktif.
+                </p>
+
+                <div style="margin-top: 10px;">
+                  <button
+                    id="btn-uncheck-all"
+                    class="btn btn--danger tools-card__btn"
+                    type="button"
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;">
+                      <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                      <line x1="9" y1="9" x2="15" y2="15"/>
+                      <line x1="15" y1="9" x2="9" y2="15"/>
+                    </svg>
+                    <span>Toggle Off Layanan</span>
+                  </button>
+                </div>
+              </div>
+
+              <!-- STATUS BANNER -->
+              <p id="tools-status" class="tools-status-badge" hidden></p>
+            </div>
+          </div>
+        </main>
+        <footer id="btn-footer" class="popup__footer" hidden></footer>
+        <div class="popup__site-link">
+          <span id="footer-version" class="popup__version flickering">v1.0</span>
+          <span class="flickering-delayed">Create by: Mochamad Fauzie</span>
+        </div>
+      </div>
+
+      <!-- Right Side Vertical Tab Navigation -->
+      
+    </div>
+  </div>
+</div>
+</div>
+      </aside>
+    </main>
+
+    <!-- ── SKRIP EKSEKUSI & BRIDGE ────────────────────────────── -->
+    <script src="src/automationBridge.js"></script>
+    <script src="src/sweetalert2.all.min.js"></script>
+    <script src="src/xlsx.mini.min.js"></script>
+    <script type="module" src="src/background.js"></script>
+    <script type="module" src="src/popup.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,590 @@
+{
+  "appName": "ENCO Desktop",
+  "version": "1.0.0",
+  "updatedAt": "2026-09-13T17:20:09.682Z",
+  "repository": "https://github.com/bankot18/kunkun",
+  "totalFiles": 145,
+  "totalSizeBytes": 19640166,
+  "files": {
+    "extension/manifest.json": {
+      "hash": "df258e47212f2ae735ec6df23582f09c967e0fff9966054fa08616a48c69dfe1",
+      "size": 2956
+    },
+    "extension/popup.html": {
+      "hash": "4e194a1f7274b2e8233ef6c423fdb0775dd50e380ff3cb9d5e1fe711fce05518",
+      "size": 76577
+    },
+    "extension/src/auth.js": {
+      "hash": "231c6e04bf356c64c264b176c870dacd46a78633d68d559b7390827c18da2ccb",
+      "size": 1624
+    },
+    "extension/src/automation.js": {
+      "hash": "cbfa1ce16c817f79b04530bd9e161e1e1817c790457b1fc249fba04e0a322c48",
+      "size": 35034
+    },
+    "extension/src/background.js": {
+      "hash": "3fbd75c03f7f4a2f6d2e711578991473375de939e21212396fe45e0a7c44bfd5",
+      "size": 51517
+    },
+    "extension/src/fieldConfig.js": {
+      "hash": "f51e7fd6bb60208a84096eb454d9ba9babb87a1090814df15b1ee22e0a620b76",
+      "size": 13062
+    },
+    "extension/src/interceptor-relay.js": {
+      "hash": "f23d7f4f07fcb54163507249b464df935caa3507cd0e4b6f7b9da50f3057e21f",
+      "size": 232
+    },
+    "extension/src/interceptor.js": {
+      "hash": "dd402cc9019d2eb4eaa4b8b2c8dc42da322d5d8ab2f9346a4c6659b9b7269fe4",
+      "size": 674
+    },
+    "extension/src/konfirmasiHadirAutomation.js": {
+      "hash": "91c624e5681b970b46e9fce4a46da5f71f5279be79095ce3a7a0fc85a8dac8f9",
+      "size": 17441
+    },
+    "extension/src/logger.js": {
+      "hash": "80568985edba322a863deb11c30efe8aa497cc20a46c5b9624372184e9cdf89b",
+      "size": 2873
+    },
+    "extension/src/pelayananFormHelper.js": {
+      "hash": "6d012f83fc97bf6434d86ace9b9b56b95788785eacc7170c081ae2f02523d796",
+      "size": 6522
+    },
+    "extension/src/pelayananInstanAutomation.js": {
+      "hash": "52270f70d4a26c3cae323b9666660152ec2ecb4ebe1b65865fa187e1c096dd12",
+      "size": 46089
+    },
+    "extension/src/pendaftaranAutomation.js": {
+      "hash": "c691f3e7f192d265bfc7eb758a002ca5ef60c1beccb8e07abf4591598f767329",
+      "size": 58910
+    },
+    "extension/src/popup.js": {
+      "hash": "d03a6990955ea7b30b2a35472fadfbcb531842200159496189598aea8475ae2f",
+      "size": 64499
+    },
+    "extension/src/remoteConfig.js": {
+      "hash": "f852af7a9924c47b42c929ca28e1b4490d1444be1174b43c6f3eb8d6d5a2fd64",
+      "size": 2691
+    },
+    "extension/src/schoolData.js": {
+      "hash": "5c809f6dffc425c7f96161d5e391ce9f8920ec9c2d2ee1b2fa39c74b32209241",
+      "size": 34978
+    },
+    "extension/src/supabase.js": {
+      "hash": "73972d7aa119b96602f08738d0fb310c8d5aefca5efc2ad75dd2fdbfaa841bb8",
+      "size": 11336
+    },
+    "extension/src/uncheckConfig.js": {
+      "hash": "b637dfc3f06b6a5d72e83229a09be528751006f9fc8ae7729f6c709f8d3fe7d9",
+      "size": 668
+    },
+    "extension/src/uncheckUtils.js": {
+      "hash": "a6a14969d852029f813d410afeeafaa25f6519b3317f430ba4625e063abc2314",
+      "size": 4406
+    },
+    "extension/src/xlsx.mini.min.js": {
+      "hash": "45b811f5b188c74e0a22e3a7da6917898049293309172a0a91ef87e54d148cbf",
+      "size": 257431
+    },
+    "extension/src/bnbaAutomation.js": {
+      "hash": "f96b7918a9bbeab8e323da91de3a654c664b1d029f7fb84efc0f9411d288bfcd",
+      "size": 58367
+    },
+    "extension/src/cekatSidebarInjector.js": {
+      "hash": "aa33094b489ede803ff5647e93029a4aaac47c696a26e208c951782b4cfea21b",
+      "size": 52211
+    },
+    "extension/src/cloudflareClient.js": {
+      "hash": "e20ef302f1471fa76a0f3003c5e57a622dfa43108623d398078561a475df9850",
+      "size": 12755
+    },
+    "extension/src/components/ButtonField.js": {
+      "hash": "86b4a5246eb29842520b4bfc64c6585f0979245ced5c6f70353252e343c75dce",
+      "size": 329
+    },
+    "extension/src/components/DropdownField.js": {
+      "hash": "85b48885dfd27a4db5456ff970229745fb12a8d6d4c2e6968da4545036b24dfa",
+      "size": 2277
+    },
+    "extension/src/components/RadioField.js": {
+      "hash": "916f794cae56f5060384cb35bb10b3af787be05992052688454be95dfccd9708",
+      "size": 1065
+    },
+    "extension/src/components/SelectField.js": {
+      "hash": "db2eee5c7067891489e98f49e09b701b9d42448b51e35ce6935f3284a9100c8b",
+      "size": 1294
+    },
+    "extension/src/components/TextField.js": {
+      "hash": "a42c112aa4ef73f496fe9e2f9fb19bf9f7ed56d6dfd05146ce0140c8616626fd",
+      "size": 616
+    },
+    "extension/src/styles/popup.css": {
+      "hash": "41ed1824334f19c7fee3f305bd0c3878ca3cec5eb08fe66cf29ba05af601d80a",
+      "size": 127120
+    },
+    "extension/src/tabs/bnba-sekolah.js": {
+      "hash": "cb7a55a0674c4f7b9386c686c9e731d121e35a1e35b64c59d53387778cf8a65b",
+      "size": 58174
+    },
+    "extension/src/tabs/bnba-umum.js": {
+      "hash": "921dd7982f79cf634904ca581e5667c82bac49681a90587e0bace74612fdb048",
+      "size": 32940
+    },
+    "extension/src/tabs/bnba.js": {
+      "hash": "4c8ba6e264cfb58c5cc29256f2287480197d8d2f8ad09d23e24a98ae5fcf45de",
+      "size": 27240
+    },
+    "extension/src/tabs/konfigurasi.js": {
+      "hash": "4b52111d0934c0bea4bc31e931afbabeee11e79050ba9661a47fe807a0171fde",
+      "size": 17906
+    },
+    "extension/src/tabs/konfirmasi-hadir.js": {
+      "hash": "ccf84a07d4b72e434e18b5f1b59e277b9807f1a958b4391f66db4463c2aaa37e",
+      "size": 21399
+    },
+    "extension/src/tabs/pelayanan-instan.js": {
+      "hash": "c8c0436b773e3cc0afa243473176e6f9a1f5e1f2c8561a642b30e911f0186d57",
+      "size": 60850
+    },
+    "extension/src/tabs/pelayanan.js": {
+      "hash": "412dc625145c2b2dfa714f2db5da426b7152563cfd37bc76c0748b0e73b57da5",
+      "size": 52615
+    },
+    "extension/src/tabs/pendaftaran.js": {
+      "hash": "b5b68216da01c76fe6ab706a8c9bfbd6a52d6f0f17bc45e32dbadf64557d893b",
+      "size": 17672
+    },
+    "extension/src/tabs/tools.js": {
+      "hash": "181decedf0bd392858cd30c559eaa7ef39f31f7accc0403c5b19e36053088f52",
+      "size": 3342
+    },
+    "extension/src/sweetalert2.all.min.js": {
+      "hash": "4e86f0e22e4771b5b8aac24c613c661806a678b1afa284d03cf6ad03d3e21a0a",
+      "size": 79150
+    },
+    "extension/src/icons/icon128.png": {
+      "hash": "46a3efff6ab45d44c7100dae474e004f4c7a0080ccb06e3e19adc038ef44e6d6",
+      "size": 39845
+    },
+    "extension/src/icons/icon16.png": {
+      "hash": "bd3bf09bbd6163c2927560280b6f8f98fe425e755ef880f934471d6505522c2e",
+      "size": 959
+    },
+    "extension/src/icons/icon48.png": {
+      "hash": "18b0d243f7d272e5b8ada80cecc1810f7b09592d8d137cf1ba8ec9e68cf404cc",
+      "size": 6409
+    },
+    "extension/src/icons/logo.png": {
+      "hash": "4d9f82a7bc2685cb7e228383041fda7ba62fe508b4bc29028e859186e4bb47f3",
+      "size": 127229
+    },
+    "extension/src/icons/bg_texture.png": {
+      "hash": "639c8f6baa15f451b48ae6b1aa9f5cfa6262a66caa62148fbf6ff48e1b48cb28",
+      "size": 196379
+    },
+    "extension/src/icons/panel_base.png": {
+      "hash": "f3e411aceca8af2a261b5e23e096959374c4124c297060501f32a85ecbfedd67",
+      "size": 73486
+    },
+    "extension/src/icons/btn_electric.png": {
+      "hash": "5f2581ab5ea75c2156004da171e9a04b76fde5ebf84b5022d27e648ab19db50b",
+      "size": 13736
+    },
+    "extension/src/icons/bg_cyber.png": {
+      "hash": "7ca90334c66823863cf15c6c9959fdd40fb3b635b65cda8326bd280d0ca6a118",
+      "size": 184025
+    },
+    "extension/src/icons/panel_glass.png": {
+      "hash": "a7b5a7dbd2cc679afdcaa17952d1d525730f689e66af28eb2bd4635592e83b7d",
+      "size": 48085
+    },
+    "extension/src/icons/btn_lightning.png": {
+      "hash": "2ecb15fac51dbe34cf52bc0ae6553a54c86c5edd54c4c19434eb09a8f7ba41a0",
+      "size": 8111
+    },
+    "extension/src/icons/bg_login_hd.png": {
+      "hash": "14bf44ee7a3dfecf25ab2d30441befecde3e1e02575009bd2afa94d0b956e41b",
+      "size": 2691792
+    },
+    "extension/src/icons/panel_orb_transparent.png": {
+      "hash": "0f2d3ba6b6c879fd0802cbff03291527037bbca96045c5b09185869f911171fd",
+      "size": 639349
+    },
+    "extension/src/soundEffects.js": {
+      "hash": "5a5f5181f03b712183e87232dd93d795f52a407eceb9c2841ca7e2035cd48036",
+      "size": 1940
+    },
+    "extension/icons/icon128.png": {
+      "hash": "46a3efff6ab45d44c7100dae474e004f4c7a0080ccb06e3e19adc038ef44e6d6",
+      "size": 39845
+    },
+    "extension/icons/icon16.png": {
+      "hash": "bd3bf09bbd6163c2927560280b6f8f98fe425e755ef880f934471d6505522c2e",
+      "size": 959
+    },
+    "extension/icons/icon48.png": {
+      "hash": "18b0d243f7d272e5b8ada80cecc1810f7b09592d8d137cf1ba8ec9e68cf404cc",
+      "size": 6409
+    },
+    "extension/icons/logo.png": {
+      "hash": "4d9f82a7bc2685cb7e228383041fda7ba62fe508b4bc29028e859186e4bb47f3",
+      "size": 127229
+    },
+    "extension/icons/bg_texture.png": {
+      "hash": "639c8f6baa15f451b48ae6b1aa9f5cfa6262a66caa62148fbf6ff48e1b48cb28",
+      "size": 196379
+    },
+    "extension/icons/panel_base.png": {
+      "hash": "f3e411aceca8af2a261b5e23e096959374c4124c297060501f32a85ecbfedd67",
+      "size": 73486
+    },
+    "extension/icons/btn_electric.png": {
+      "hash": "5f2581ab5ea75c2156004da171e9a04b76fde5ebf84b5022d27e648ab19db50b",
+      "size": 13736
+    },
+    "extension/icons/bg_cyber.png": {
+      "hash": "7ca90334c66823863cf15c6c9959fdd40fb3b635b65cda8326bd280d0ca6a118",
+      "size": 184025
+    },
+    "extension/icons/panel_glass.png": {
+      "hash": "a7b5a7dbd2cc679afdcaa17952d1d525730f689e66af28eb2bd4635592e83b7d",
+      "size": 48085
+    },
+    "extension/icons/btn_lightning.png": {
+      "hash": "2ecb15fac51dbe34cf52bc0ae6553a54c86c5edd54c4c19434eb09a8f7ba41a0",
+      "size": 8111
+    },
+    "extension/icons/bg_login_hd.png": {
+      "hash": "14bf44ee7a3dfecf25ab2d30441befecde3e1e02575009bd2afa94d0b956e41b",
+      "size": 2691792
+    },
+    "extension/icons/panel_orb_transparent.png": {
+      "hash": "0f2d3ba6b6c879fd0802cbff03291527037bbca96045c5b09185869f911171fd",
+      "size": 639349
+    },
+    "assets/icon.png": {
+      "hash": "46a3efff6ab45d44c7100dae474e004f4c7a0080ccb06e3e19adc038ef44e6d6",
+      "size": 39845
+    },
+    "assets/icon.ico": {
+      "hash": "9c2cf830e2ef5874e68ffc1bbcde1f1ed912019d41ac5dafb6e276bfc04f0fb2",
+      "size": 218744
+    },
+    "assets/enco.ico": {
+      "hash": "9c2cf830e2ef5874e68ffc1bbcde1f1ed912019d41ac5dafb6e276bfc04f0fb2",
+      "size": 218744
+    },
+    "package.json": {
+      "hash": "d238b7e8a3c16c2221e51be9991dd559b2e7327c97de375c8b9c8876bafdac3b",
+      "size": 711
+    },
+    "main.js": {
+      "hash": "0d89620071b185970e8fb1a90be15ea7631744a55d77368b9d2f570a5e879485",
+      "size": 23236
+    },
+    "README.md": {
+      "hash": "27e3f68f333638b33a856c723fd3166196685719b7461632374eb0d18307e92d",
+      "size": 2349
+    },
+    "Jalankan-ENCO.bat": {
+      "hash": "dc1e0d7c8fb22fa2727e93482a5addb8b3729d4ae776d076d5f26809eb378045",
+      "size": 420
+    },
+    "preload-login.js": {
+      "hash": "30b1b6d623d6ee39adc5d003ddb697ac3e1eeb02dc36b6c6e730059f68a47ce1",
+      "size": 507
+    },
+    "login.html": {
+      "hash": "ad92a814cafa4e531a9734e751f635f9e5cf3f71c4e7b37f353bfd72e9cb4b64",
+      "size": 21540
+    },
+    "preload-main.js": {
+      "hash": "ebce1e0406e9c3c7ac34c315a493b4af72922dc762418db436f6682fd326d9f4",
+      "size": 1262
+    },
+    "ENCO.exe": {
+      "hash": "d564fc1055b7e936a42b933b76230f199ac5f2fed1b85549a731d2102e645fcf",
+      "size": 225280
+    },
+    "src/auth.js": {
+      "hash": "231c6e04bf356c64c264b176c870dacd46a78633d68d559b7390827c18da2ccb",
+      "size": 1624
+    },
+    "src/automation.js": {
+      "hash": "cbfa1ce16c817f79b04530bd9e161e1e1817c790457b1fc249fba04e0a322c48",
+      "size": 35034
+    },
+    "src/background.js": {
+      "hash": "3fbd75c03f7f4a2f6d2e711578991473375de939e21212396fe45e0a7c44bfd5",
+      "size": 51517
+    },
+    "src/fieldConfig.js": {
+      "hash": "f51e7fd6bb60208a84096eb454d9ba9babb87a1090814df15b1ee22e0a620b76",
+      "size": 13062
+    },
+    "src/interceptor-relay.js": {
+      "hash": "f23d7f4f07fcb54163507249b464df935caa3507cd0e4b6f7b9da50f3057e21f",
+      "size": 232
+    },
+    "src/interceptor.js": {
+      "hash": "dd402cc9019d2eb4eaa4b8b2c8dc42da322d5d8ab2f9346a4c6659b9b7269fe4",
+      "size": 674
+    },
+    "src/konfirmasiHadirAutomation.js": {
+      "hash": "91c624e5681b970b46e9fce4a46da5f71f5279be79095ce3a7a0fc85a8dac8f9",
+      "size": 17441
+    },
+    "src/logger.js": {
+      "hash": "80568985edba322a863deb11c30efe8aa497cc20a46c5b9624372184e9cdf89b",
+      "size": 2873
+    },
+    "src/pelayananFormHelper.js": {
+      "hash": "6d012f83fc97bf6434d86ace9b9b56b95788785eacc7170c081ae2f02523d796",
+      "size": 6522
+    },
+    "src/pelayananInstanAutomation.js": {
+      "hash": "52270f70d4a26c3cae323b9666660152ec2ecb4ebe1b65865fa187e1c096dd12",
+      "size": 46089
+    },
+    "src/pendaftaranAutomation.js": {
+      "hash": "c691f3e7f192d265bfc7eb758a002ca5ef60c1beccb8e07abf4591598f767329",
+      "size": 58910
+    },
+    "src/popup.js": {
+      "hash": "dfb5058772024f21fe569d00b763b9ea6bc6ab13b9893a794a2d3a2bde8714c7",
+      "size": 64635
+    },
+    "src/remoteConfig.js": {
+      "hash": "f852af7a9924c47b42c929ca28e1b4490d1444be1174b43c6f3eb8d6d5a2fd64",
+      "size": 2691
+    },
+    "src/schoolData.js": {
+      "hash": "5c809f6dffc425c7f96161d5e391ce9f8920ec9c2d2ee1b2fa39c74b32209241",
+      "size": 34978
+    },
+    "src/supabase.js": {
+      "hash": "73972d7aa119b96602f08738d0fb310c8d5aefca5efc2ad75dd2fdbfaa841bb8",
+      "size": 11336
+    },
+    "src/uncheckConfig.js": {
+      "hash": "b637dfc3f06b6a5d72e83229a09be528751006f9fc8ae7729f6c709f8d3fe7d9",
+      "size": 668
+    },
+    "src/uncheckUtils.js": {
+      "hash": "a6a14969d852029f813d410afeeafaa25f6519b3317f430ba4625e063abc2314",
+      "size": 4406
+    },
+    "src/xlsx.mini.min.js": {
+      "hash": "45b811f5b188c74e0a22e3a7da6917898049293309172a0a91ef87e54d148cbf",
+      "size": 257431
+    },
+    "src/bnbaAutomation.js": {
+      "hash": "f96b7918a9bbeab8e323da91de3a654c664b1d029f7fb84efc0f9411d288bfcd",
+      "size": 58367
+    },
+    "src/cekatSidebarInjector.js": {
+      "hash": "aa33094b489ede803ff5647e93029a4aaac47c696a26e208c951782b4cfea21b",
+      "size": 52211
+    },
+    "src/cloudflareClient.js": {
+      "hash": "e20ef302f1471fa76a0f3003c5e57a622dfa43108623d398078561a475df9850",
+      "size": 12755
+    },
+    "src/sweetalert2.all.min.js": {
+      "hash": "4e86f0e22e4771b5b8aac24c613c661806a678b1afa284d03cf6ad03d3e21a0a",
+      "size": 79150
+    },
+    "src/components/ButtonField.js": {
+      "hash": "86b4a5246eb29842520b4bfc64c6585f0979245ced5c6f70353252e343c75dce",
+      "size": 329
+    },
+    "src/components/DropdownField.js": {
+      "hash": "85b48885dfd27a4db5456ff970229745fb12a8d6d4c2e6968da4545036b24dfa",
+      "size": 2277
+    },
+    "src/components/RadioField.js": {
+      "hash": "916f794cae56f5060384cb35bb10b3af787be05992052688454be95dfccd9708",
+      "size": 1065
+    },
+    "src/components/SelectField.js": {
+      "hash": "db2eee5c7067891489e98f49e09b701b9d42448b51e35ce6935f3284a9100c8b",
+      "size": 1294
+    },
+    "src/components/TextField.js": {
+      "hash": "a42c112aa4ef73f496fe9e2f9fb19bf9f7ed56d6dfd05146ce0140c8616626fd",
+      "size": 616
+    },
+    "src/styles/popup.css": {
+      "hash": "41ed1824334f19c7fee3f305bd0c3878ca3cec5eb08fe66cf29ba05af601d80a",
+      "size": 127120
+    },
+    "src/tabs/bnba-sekolah.js": {
+      "hash": "cb7a55a0674c4f7b9386c686c9e731d121e35a1e35b64c59d53387778cf8a65b",
+      "size": 58174
+    },
+    "src/tabs/bnba-umum.js": {
+      "hash": "921dd7982f79cf634904ca581e5667c82bac49681a90587e0bace74612fdb048",
+      "size": 32940
+    },
+    "src/tabs/bnba.js": {
+      "hash": "4c8ba6e264cfb58c5cc29256f2287480197d8d2f8ad09d23e24a98ae5fcf45de",
+      "size": 27240
+    },
+    "src/tabs/konfigurasi.js": {
+      "hash": "4b52111d0934c0bea4bc31e931afbabeee11e79050ba9661a47fe807a0171fde",
+      "size": 17906
+    },
+    "src/tabs/konfirmasi-hadir.js": {
+      "hash": "c3b848713be47231007cd3fd0359ec771b8f695959847e67634573e14797f442",
+      "size": 23377
+    },
+    "src/tabs/pelayanan-instan.js": {
+      "hash": "c8c0436b773e3cc0afa243473176e6f9a1f5e1f2c8561a642b30e911f0186d57",
+      "size": 60850
+    },
+    "src/tabs/pelayanan.js": {
+      "hash": "412dc625145c2b2dfa714f2db5da426b7152563cfd37bc76c0748b0e73b57da5",
+      "size": 52615
+    },
+    "src/tabs/pendaftaran.js": {
+      "hash": "b5b68216da01c76fe6ab706a8c9bfbd6a52d6f0f17bc45e32dbadf64557d893b",
+      "size": 17672
+    },
+    "src/tabs/tools.js": {
+      "hash": "181decedf0bd392858cd30c559eaa7ef39f31f7accc0403c5b19e36053088f52",
+      "size": 3342
+    },
+    "src/icons/icon128.png": {
+      "hash": "46a3efff6ab45d44c7100dae474e004f4c7a0080ccb06e3e19adc038ef44e6d6",
+      "size": 39845
+    },
+    "src/icons/icon16.png": {
+      "hash": "bd3bf09bbd6163c2927560280b6f8f98fe425e755ef880f934471d6505522c2e",
+      "size": 959
+    },
+    "src/icons/icon48.png": {
+      "hash": "18b0d243f7d272e5b8ada80cecc1810f7b09592d8d137cf1ba8ec9e68cf404cc",
+      "size": 6409
+    },
+    "src/icons/logo.png": {
+      "hash": "4d9f82a7bc2685cb7e228383041fda7ba62fe508b4bc29028e859186e4bb47f3",
+      "size": 127229
+    },
+    "src/icons/bg_texture.png": {
+      "hash": "639c8f6baa15f451b48ae6b1aa9f5cfa6262a66caa62148fbf6ff48e1b48cb28",
+      "size": 196379
+    },
+    "src/icons/panel_base.png": {
+      "hash": "f3e411aceca8af2a261b5e23e096959374c4124c297060501f32a85ecbfedd67",
+      "size": 73486
+    },
+    "src/icons/btn_electric.png": {
+      "hash": "5f2581ab5ea75c2156004da171e9a04b76fde5ebf84b5022d27e648ab19db50b",
+      "size": 13736
+    },
+    "src/icons/bg_cyber.png": {
+      "hash": "7ca90334c66823863cf15c6c9959fdd40fb3b635b65cda8326bd280d0ca6a118",
+      "size": 184025
+    },
+    "src/icons/panel_glass.png": {
+      "hash": "a7b5a7dbd2cc679afdcaa17952d1d525730f689e66af28eb2bd4635592e83b7d",
+      "size": 48085
+    },
+    "src/icons/btn_lightning.png": {
+      "hash": "2ecb15fac51dbe34cf52bc0ae6553a54c86c5edd54c4c19434eb09a8f7ba41a0",
+      "size": 8111
+    },
+    "src/icons/bg_login_hd.png": {
+      "hash": "14bf44ee7a3dfecf25ab2d30441befecde3e1e02575009bd2afa94d0b956e41b",
+      "size": 2691792
+    },
+    "src/icons/panel_orb_transparent.png": {
+      "hash": "0f2d3ba6b6c879fd0802cbff03291527037bbca96045c5b09185869f911171fd",
+      "size": 639349
+    },
+    "src/automationBridge.js": {
+      "hash": "12e33f35364e1de16fd2b43fbbd6af476c31b1b91a02342bf09986c0e6a95c74",
+      "size": 11152
+    },
+    "src/soundEffects.js": {
+      "hash": "5a5f5181f03b712183e87232dd93d795f52a407eceb9c2841ca7e2035cd48036",
+      "size": 1940
+    },
+    "preload-kemkes.js": {
+      "hash": "8e476bdd9bfc9da4d126c80e8978b839d8eee2d25b1445a60845580cb0eaf753",
+      "size": 1375
+    },
+    "icons/icon128.png": {
+      "hash": "46a3efff6ab45d44c7100dae474e004f4c7a0080ccb06e3e19adc038ef44e6d6",
+      "size": 39845
+    },
+    "icons/icon16.png": {
+      "hash": "bd3bf09bbd6163c2927560280b6f8f98fe425e755ef880f934471d6505522c2e",
+      "size": 959
+    },
+    "icons/icon48.png": {
+      "hash": "18b0d243f7d272e5b8ada80cecc1810f7b09592d8d137cf1ba8ec9e68cf404cc",
+      "size": 6409
+    },
+    "icons/logo.png": {
+      "hash": "4d9f82a7bc2685cb7e228383041fda7ba62fe508b4bc29028e859186e4bb47f3",
+      "size": 127229
+    },
+    "icons/bg_texture.png": {
+      "hash": "639c8f6baa15f451b48ae6b1aa9f5cfa6262a66caa62148fbf6ff48e1b48cb28",
+      "size": 196379
+    },
+    "icons/panel_base.png": {
+      "hash": "f3e411aceca8af2a261b5e23e096959374c4124c297060501f32a85ecbfedd67",
+      "size": 73486
+    },
+    "icons/btn_electric.png": {
+      "hash": "5f2581ab5ea75c2156004da171e9a04b76fde5ebf84b5022d27e648ab19db50b",
+      "size": 13736
+    },
+    "icons/bg_cyber.png": {
+      "hash": "7ca90334c66823863cf15c6c9959fdd40fb3b635b65cda8326bd280d0ca6a118",
+      "size": 184025
+    },
+    "icons/panel_glass.png": {
+      "hash": "a7b5a7dbd2cc679afdcaa17952d1d525730f689e66af28eb2bd4635592e83b7d",
+      "size": 48085
+    },
+    "icons/btn_lightning.png": {
+      "hash": "2ecb15fac51dbe34cf52bc0ae6553a54c86c5edd54c4c19434eb09a8f7ba41a0",
+      "size": 8111
+    },
+    "icons/bg_login_hd.png": {
+      "hash": "14bf44ee7a3dfecf25ab2d30441befecde3e1e02575009bd2afa94d0b956e41b",
+      "size": 2691792
+    },
+    "icons/panel_orb_transparent.png": {
+      "hash": "0f2d3ba6b6c879fd0802cbff03291527037bbca96045c5b09185869f911171fd",
+      "size": 639349
+    },
+    "app.html": {
+      "hash": "1dc3862dc1472c5a84714ff343852d34a14f7b0b32fa19d2226494b14cfac70d",
+      "size": 89421
+    },
+    "app.css": {
+      "hash": "9e0e9527e5a6d3a9dcc6ae7da43c8aef9716f6d551023fdedef186e2fbfc9f35",
+      "size": 60962
+    },
+    "app.js": {
+      "hash": "fddecfd75c634344b61ca8fb84619731291c4acd1f74d653d6b07a0f404d8a33",
+      "size": 31355
+    },
+    "updater.js": {
+      "hash": "e4d8e7b7eca2bc81e17a6adf593b60d9ed3f31788965eaec2a1ff575b7a278e0",
+      "size": 6241
+    },
+    "preload-splash.js": {
+      "hash": "87fd254714ed0aa6f316333f5a1b2dac224251815fe776761ccee8782da636f6",
+      "size": 272
+    },
+    "splash.html": {
+      "hash": "d4c0d7c0e8323a3a5e402f4f867f87495a68827ed9e1ef19db24020de155c6ef",
+      "size": 8985
+    }
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "name": "enco-desktop",
+  "version": "1.0.0",
+  "description": "Aplikasi Desktop ENCO (Entry CKG Otomatis) - Sehat Indonesiaku Kiosk Browser",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder"
+  },
+  "keywords": [
+    "enco",
+    "sehat-indonesiaku",
+    "ckg",
+    "electron"
+  ],
+  "author": "Mochamad Fauzie, S.Gz",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^34.2.0"
+  },
+  "build": {
+    "appId": "com.enco.desktop",
+    "productName": "ENCO - Sehat Indonesiaku",
+    "win": {
+      "target": "nsis",
+      "icon": "assets/icon.png"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    }
+  }
+}

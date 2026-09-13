@@ -1,0 +1,2116 @@
+/* ============================================================================
+   ENCO Desktop - Main Shell Styles (Split-Screen Native & Topbar Navigation)
+   ============================================================================ */
+
+body.enco-desktop-body {
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  overflow: hidden !important;
+  display: flex !important;
+  flex-direction: column !important;
+  background: #050609 !important;
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif !important;
+  user-select: none;
+}
+
+/* ── 1. TOPBAR NAVIGASI DESKTOP ───────────────────────────────── */
+.enco-topbar {
+  position: relative;
+  height: 44px;
+  min-height: 44px;
+  background: linear-gradient(90deg, #070c18 0%, #0d1628 50%, #070c18 100%);
+  border-bottom: 1px solid rgba(0, 212, 255, 0.22);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 12px;
+  z-index: 1000;
+  box-shadow: 0 2px 14px rgba(0, 0, 0, 0.7);
+}
+
+.topbar-left, .topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Tombol Navigasi Portal Sehat Indonesiaku */
+.topbar-btn {
+  height: 28px;
+  padding: 0 10px;
+  font-size: 11px;
+  font-weight: 600;
+  font-family: inherit;
+  border-radius: 6px;
+  border: 1px solid rgba(0, 212, 255, 0.25);
+  background: rgba(0, 212, 255, 0.08);
+  color: #e2e8f0;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  transition: all 0.18s cubic-bezier(0.4, 0, 0.2, 1);
+  white-space: nowrap;
+}
+
+.topbar-btn:hover {
+  background: rgba(0, 212, 255, 0.22);
+  border-color: #00d4ff;
+  color: #ffffff;
+  box-shadow: 0 0 12px rgba(0, 212, 255, 0.45);
+}
+
+.topbar-btn:active {
+  transform: scale(0.97);
+}
+
+.topbar-btn-icon {
+  width: 28px;
+  padding: 0;
+  justify-content: center;
+}
+
+.topbar-btn-reload svg.spinning {
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* ── Sisi Tengah: Branding ENCO ENTRY CKG OTOMATIS (Persis Mockup) ── */
+.topbar-center {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.topbar-center-badge {
+  pointer-events: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.enco-brand-box {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: rgba(9, 17, 30, 0.85);
+  border: 1.5px solid #00d4ff;
+  border-radius: 7px;
+  padding: 3px 9px;
+  box-shadow: 0 0 12px rgba(0, 212, 255, 0.4), inset 0 0 6px rgba(0, 212, 255, 0.2);
+}
+
+.topbar-center-logo {
+  width: 18px;
+  height: 18px;
+  filter: drop-shadow(0 0 6px rgba(0, 212, 255, 0.8));
+}
+
+.topbar-center-title {
+  font-family: 'Orbitron', 'Bebas Neue', sans-serif;
+  font-weight: 800;
+  font-size: 15px;
+  color: #ffffff;
+  letter-spacing: 1.8px;
+  text-shadow: 0 0 10px rgba(0, 212, 255, 0.8);
+  line-height: 1;
+}
+
+.topbar-center-subtitle {
+  font-family: 'Orbitron', 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  font-size: 11px;
+  color: #00f0ff;
+  letter-spacing: 1.6px;
+  text-shadow: 0 0 8px rgba(0, 240, 255, 0.6);
+  line-height: 1;
+}
+
+/* ── Sisi Kanan: Profil User & Action Buttons ── */
+.topbar-user-card {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 2px 6px;
+  border-radius: 6px;
+}
+
+.topbar-user-avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #0284c7 0%, #00d4ff 100%);
+  border: 1.5px solid #00d4ff;
+  color: #ffffff;
+  font-weight: 800;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 8px rgba(0, 212, 255, 0.5);
+  flex-shrink: 0;
+}
+
+.topbar-user-details {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.15;
+}
+
+.topbar-user-name {
+  font-size: 11px;
+  font-weight: 700;
+  color: #f8fafc;
+  white-space: nowrap;
+  max-width: 160px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.topbar-user-meta {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 1px;
+}
+
+.topbar-user-role-badge {
+  font-size: 9px;
+  font-weight: 700;
+  padding: 1px 5px;
+  border-radius: 4px;
+  background: rgba(0, 212, 255, 0.18);
+  border: 1px solid rgba(0, 212, 255, 0.5);
+  color: #00f0ff;
+  line-height: 1.1;
+}
+
+.topbar-user-instansi {
+  font-size: 9.5px;
+  color: #94a3b8;
+  white-space: nowrap;
+  max-width: 140px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.topbar-user-quota-badge,
+.user-quota-badge {
+  font-size: 9px;
+  font-weight: 800;
+  padding: 1px 6px;
+  border-radius: 4px;
+  background: rgba(16, 185, 129, 0.18);
+  border: 1px solid rgba(16, 185, 129, 0.45);
+  color: #34d399;
+  line-height: 1.2;
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  letter-spacing: 0.3px;
+}
+
+.topbar-user-quota-badge.quota-low,
+.user-quota-badge.quota-low {
+  background: rgba(244, 63, 94, 0.2) !important;
+  border-color: rgba(244, 63, 94, 0.6) !important;
+  color: #fb7185 !important;
+  animation: pulseAnimation 2s infinite;
+}
+
+.topbar-user-quota-badge.quota-expired,
+.user-quota-badge.quota-expired {
+  background: rgba(239, 68, 68, 0.22) !important;
+  border-color: rgba(239, 68, 68, 0.7) !important;
+  color: #ef4444 !important;
+  font-weight: 700 !important;
+}
+
+.topbar-user-quota-badge.quota-expired svg,
+.user-quota-badge.quota-expired svg {
+  stroke: #ef4444 !important;
+}
+
+.topbar-user-quota-badge.quota-unlimited,
+.user-quota-badge.quota-unlimited {
+  background: rgba(0, 212, 255, 0.12) !important;
+  border-color: rgba(0, 212, 255, 0.4) !important;
+  color: #38bdf8 !important;
+}
+
+.topbar-divider {
+  width: 1px;
+  height: 20px;
+  background: rgba(255, 255, 255, 0.12);
+  margin: 0 2px;
+}
+
+.topbar-btn-toggle.active {
+  background: rgba(0, 212, 255, 0.2);
+  border-color: #00d4ff;
+  color: #00d4ff;
+}
+
+.topbar-btn-danger {
+  border-color: rgba(255, 0, 127, 0.35);
+  background: rgba(255, 0, 127, 0.1);
+  color: #ff80bf;
+}
+
+.topbar-btn-danger:hover {
+  background: rgba(255, 0, 127, 0.25);
+  border-color: #ff007f;
+  color: #ffffff;
+  box-shadow: 0 0 12px rgba(255, 0, 127, 0.5);
+}
+
+/* ── 2. WORKSPACE SPLIT VIEW ──────────────────────────────────── */
+.enco-workspace {
+  display: flex;
+  flex: 1;
+  height: calc(100vh - 44px);
+  overflow: hidden;
+  position: relative;
+  background: #050609;
+}
+
+.kemkes-panel {
+  flex: 1;
+  height: 100%;
+  position: relative;
+  min-width: 320px;
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+}
+
+.kemkes-loading-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 3px;
+  background: linear-gradient(90deg, #00d4ff, #ff007f);
+  box-shadow: 0 0 8px rgba(0, 212, 255, 0.8);
+  z-index: 10;
+  transition: width 0.3s ease;
+}
+
+.kemkes-webview {
+  width: 100%;
+  height: 100%;
+  border: none;
+  flex: 1;
+  background: #ffffff;
+}
+
+/* Resizer Splitter */
+.app-splitter {
+  width: 7px;
+  min-width: 7px;
+  height: 100%;
+  background: #090f1d;
+  cursor: col-resize;
+  position: relative;
+  user-select: none;
+  z-index: 50;
+  transition: background 0.2s, box-shadow 0.2s;
+  border-left: 1px solid rgba(0, 212, 255, 0.15);
+  border-right: 1px solid rgba(0, 212, 255, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.splitter-handle {
+  width: 3px;
+  height: 40px;
+  border-radius: 2px;
+  background: rgba(0, 212, 255, 0.4);
+  transition: background 0.2s;
+}
+
+.app-splitter:hover, .app-splitter.dragging {
+  background: #00d4ff;
+  box-shadow: 0 0 15px rgba(0, 212, 255, 0.8);
+}
+
+.app-splitter:hover .splitter-handle, .app-splitter.dragging .splitter-handle {
+  background: #ffffff;
+}
+
+/* ── 3. SIDEBAR MENU NAVIGASI (SISI PALING KIRI) ─────────────── */
+.app-nav-sidebar {
+  width: 195px;
+  min-width: 195px;
+  height: 100%;
+  background: #060b13;
+  border-right: 1.5px solid rgba(0, 212, 255, 0.2);
+  box-shadow: 4px 0 16px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  overflow-x: hidden;
+  z-index: 20;
+  flex-shrink: 0;
+}
+
+.app-nav-sidebar .tab-nav {
+  width: 100% !important;
+  height: 100% !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 10px 8px !important;
+  background: transparent !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 7px !important;
+}
+
+.app-nav-sidebar .tab-nav__btn {
+  width: 100% !important;
+  border-radius: 8px !important;
+  padding: 8px 9px !important;
+  font-size: 10.5px !important;
+  font-weight: 700 !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 7px !important;
+  position: relative !important;
+  color: #94a3b8 !important;
+  background: rgba(12, 19, 32, 0.65) !important;
+  border: 1px solid rgba(255, 255, 255, 0.07) !important;
+  transition: all 0.18s ease !important;
+  text-align: left !important;
+  cursor: pointer !important;
+  box-sizing: border-box !important;
+}
+
+.app-nav-sidebar .tab-nav__btn span:not(.tab-nav__lock-badge) {
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  flex: 1 !important;
+  min-width: 0 !important;
+}
+
+.app-nav-sidebar .tab-nav__btn svg {
+  flex-shrink: 0;
+  color: #64748b;
+  transition: color 0.18s ease, filter 0.18s ease;
+}
+
+.app-nav-sidebar .tab-nav__btn:hover {
+  background: rgba(0, 212, 255, 0.12) !important;
+  border-color: rgba(0, 212, 255, 0.4) !important;
+  color: #ffffff !important;
+}
+
+.app-nav-sidebar .tab-nav__btn:hover svg {
+  color: #00d4ff;
+}
+
+.app-nav-sidebar .tab-nav__btn--active {
+  color: #ffffff !important;
+  background: linear-gradient(90deg, rgba(0, 212, 255, 0.25), rgba(0, 212, 255, 0.06)) !important;
+  border: 1.5px solid #00f0ff !important;
+  font-weight: 800 !important;
+  box-shadow: 0 0 14px rgba(0, 212, 255, 0.35), inset 0 0 8px rgba(0, 212, 255, 0.15) !important;
+  text-shadow: 0 0 8px #00f0ff !important;
+  transform: translateX(2px) !important;
+}
+
+.app-nav-sidebar .tab-nav__btn--active svg {
+  color: #00f0ff !important;
+  filter: drop-shadow(0 0 6px #00f0ff);
+}
+
+.app-nav-sidebar .tab-nav__btn--active::before {
+  content: '' !important;
+  position: absolute !important;
+  left: -2px !important;
+  right: auto !important;
+  top: 15% !important;
+  bottom: 15% !important;
+  width: 3.5px !important;
+  background: #00f0ff !important;
+  border-radius: 4px !important;
+  box-shadow: 0 0 10px #00f0ff, 0 0 18px #00f0ff !important;
+}
+
+.app-nav-sidebar .tab-nav__btn--control-panel {
+  margin-top: auto !important;
+  border-style: dashed !important;
+  border-color: rgba(0, 212, 255, 0.4) !important;
+  color: #00d4ff !important;
+  background: rgba(0, 212, 255, 0.05) !important;
+}
+
+.app-nav-sidebar .tab-nav__btn--control-panel svg {
+  color: #00d4ff !important;
+}
+
+/* ── 3B. TOMBOL TAB TERKUNCI (LISENSI BASIC / FREE) ──────────── */
+.app-nav-sidebar .tab-nav__btn--locked,
+.tab-nav__btn.tab-nav__btn--locked {
+  opacity: 0.72 !important;
+  border-color: rgba(245, 158, 11, 0.22) !important;
+  background: rgba(20, 17, 12, 0.5) !important;
+  color: #94a3b8 !important;
+  position: relative !important;
+  cursor: pointer !important;
+}
+
+.app-nav-sidebar .tab-nav__btn--locked:hover,
+.tab-nav__btn.tab-nav__btn--locked:hover {
+  opacity: 0.95 !important;
+  background: rgba(245, 158, 11, 0.12) !important;
+  border-color: rgba(250, 204, 21, 0.5) !important;
+  color: #fef08a !important;
+}
+
+.app-nav-sidebar .tab-nav__btn--locked svg:not(.tab-nav__lock-badge svg),
+.tab-nav__btn.tab-nav__btn--locked svg:not(.tab-nav__lock-badge svg) {
+  color: #fbbf24 !important;
+  filter: drop-shadow(0 0 4px rgba(250, 204, 21, 0.45));
+}
+
+.tab-nav__lock-badge {
+  margin-left: auto !important;
+  flex-shrink: 0 !important;
+  width: 22px !important;
+  height: 22px !important;
+  padding: 0 !important;
+  border-radius: 6px !important;
+  background: rgba(250, 204, 21, 0.14) !important;
+  border: 1px solid rgba(250, 204, 21, 0.7) !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-shadow: 0 0 8px rgba(250, 204, 21, 0.3) !important;
+  transition: all 0.2s ease !important;
+  box-sizing: border-box !important;
+}
+
+.tab-nav__lock-badge svg {
+  width: 13px !important;
+  height: 13px !important;
+  display: block !important;
+  stroke: #facc15 !important;
+  stroke-width: 2.2 !important;
+  fill: none !important;
+  filter: drop-shadow(0 0 1.5px rgba(250, 204, 21, 0.6)) !important;
+}
+
+.app-nav-sidebar .tab-nav__btn--locked:hover .tab-nav__lock-badge,
+.tab-nav__btn.tab-nav__btn--locked:hover .tab-nav__lock-badge {
+  background: rgba(250, 204, 21, 0.28) !important;
+  border-color: #fde047 !important;
+  box-shadow: 0 0 12px rgba(250, 204, 21, 0.65) !important;
+  transform: scale(1.08) !important;
+}
+
+/* ── 4. PANEL KONTEN BOT (SISI PALING KANAN) ──────────────────── */
+.bot-panel {
+  width: 420px;
+  min-width: 350px;
+  max-width: 750px;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  background: #050609;
+  border-left: 1px solid rgba(0, 212, 255, 0.2);
+}
+
+.bot-panel.collapsed {
+  display: none !important;
+}
+
+.bot-panel #main-screen {
+  display: flex !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.bot-panel .popup {
+  width: 100% !important;
+  height: 100% !important;
+  max-height: 100% !important;
+  border: none !important;
+  box-shadow: none !important;
+  background: #050609 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  overflow: hidden !important;
+}
+
+.bot-panel .popup-inner {
+  flex: 1 !important;
+  width: 100% !important;
+  height: 100% !important;
+  display: flex !important;
+  flex-direction: column !important;
+  overflow: hidden !important;
+  border-radius: 0 !important;
+  background: #050609 !important;
+}
+
+/* Bot Panel Top Bar (Ping Connection Monitor di paling atas) */
+.bot-panel-top-bar {
+  padding: 8px 10px 4px 10px !important;
+  background: #050609 !important;
+  width: 100% !important;
+  border-bottom: 1px solid rgba(0, 212, 255, 0.12) !important;
+}
+
+.bot-panel-top-bar #ping-connection-box {
+  margin-bottom: 0 !important;
+  width: 100% !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+}
+
+.bot-panel .popup__layout {
+  flex: 1 !important;
+  width: 100% !important;
+  min-height: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  overflow: hidden !important;
+}
+
+.bot-panel .popup__content-area {
+  flex: 1 !important;
+  width: 100% !important;
+  min-height: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  overflow: hidden !important;
+}
+
+.bot-panel .popup__body {
+  flex: 1 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  min-height: 0 !important;
+  overflow-y: hidden !important;
+  padding: 8px 10px 4px 10px !important;
+}
+
+/* Biarkan tab-panel yang aktif (tidak hidden) mengambil sisa tinggi penuh */
+.bot-panel .tab-panel:not([hidden]),
+.bot-panel #tab-pendaftaran:not([hidden]),
+.bot-panel #tab-konfirmasi-hadir:not([hidden]),
+.bot-panel #tab-otomasi:not([hidden]),
+.bot-panel #tab-pelayanan-instan:not([hidden]) {
+  display: flex !important;
+  flex-direction: column !important;
+  flex: 1 !important;
+  min-height: 0 !important;
+  height: 100% !important;
+  overflow: hidden !important;
+}
+
+.bot-panel #tab-bnba-umum:not([hidden]),
+.bot-panel #tab-bnba-sekolah:not([hidden]),
+.bot-panel #tab-tools:not([hidden]),
+.bot-panel #tab-pengaturan:not([hidden]) {
+  display: flex !important;
+  flex-direction: column !important;
+  flex: 1 !important;
+  min-height: 0 !important;
+  height: 100% !important;
+  overflow-y: auto !important;
+}
+
+/* Kotak Workspace / Placeholder membentang penuh sampai ke bawah */
+.bot-panel .hud-empty-workspace:not([hidden]) {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex: 1 !important;
+  min-height: 0 !important;
+  height: 100% !important;
+  overflow: hidden !important;
+  margin-bottom: 2px !important;
+  box-sizing: border-box !important;
+}
+
+.bot-panel #tab-otomasi:not([hidden]) #ckg-form:not([hidden]) {
+  display: flex !important;
+  flex-direction: column !important;
+  flex: 1 !important;
+  min-height: 0 !important;
+  height: 100% !important;
+  overflow: hidden !important;
+}
+
+.bot-panel #tab-otomasi #ckg-form:has(.hud-empty-workspace:not([hidden])) {
+  overflow: hidden !important;
+}
+
+.bot-panel #tab-otomasi #ckg-form:not(:has(.hud-empty-workspace:not([hidden]))) {
+  overflow-y: auto !important;
+}
+
+.bot-panel #pelayanan-instan-container {
+  display: flex !important;
+  flex-direction: column !important;
+  flex: 1 !important;
+  min-height: 0 !important;
+  height: 100% !important;
+  overflow: hidden !important;
+}
+
+.bot-panel #pelayanan-instan-container .hud-empty-workspace:not([hidden]) {
+  display: flex !important;
+  flex-direction: column !important;
+  flex: 1 !important;
+  min-height: 0 !important;
+  height: 100% !important;
+  overflow: hidden !important;
+  margin-bottom: 2px !important;
+}
+
+.bot-panel .pendaftaran-list:not([hidden]) {
+  display: flex !important;
+  flex-direction: column !important;
+  flex: 1 !important;
+  min-height: 0 !important;
+  height: 100% !important;
+  overflow: hidden !important;
+  margin-top: 4px !important;
+}
+
+/* Aturan Mutlak: Semua elemen dengan atribut [hidden] WAJIB tersembunyi */
+.bot-panel [hidden],
+.bot-panel .tab-panel[hidden],
+.bot-panel #tab-pendaftaran[hidden],
+.bot-panel #tab-konfirmasi-hadir[hidden],
+.bot-panel #tab-otomasi[hidden],
+.bot-panel #tab-pelayanan-instan[hidden],
+.bot-panel #tab-bnba-umum[hidden],
+.bot-panel #tab-bnba-sekolah[hidden],
+.bot-panel #tab-tools[hidden],
+.bot-panel #tab-pengaturan[hidden],
+.bot-panel #ckg-form[hidden],
+.bot-panel .hud-empty-workspace[hidden],
+.bot-panel #pendaftaran-empty[hidden],
+.bot-panel #hadir-empty[hidden],
+.bot-panel .pendaftaran-list[hidden],
+.bot-panel #pendaftaran-list[hidden],
+.bot-panel #hadir-list[hidden],
+[hidden] {
+  display: none !important;
+}
+
+/* Patient List membentang penuh ke bawah dan scroll mulus */
+.bot-panel .patient-list,
+.bot-panel #pelayanan-patients-ul,
+.bot-panel #pendaftaran-patients,
+.bot-panel #hadir-patients {
+  max-height: none !important;
+  height: 100% !important;
+  flex: 1 !important;
+  min-height: 0 !important;
+  overflow-y: auto !important;
+  padding-right: 4px !important;
+  padding-bottom: 8px !important;
+  margin-bottom: 2px !important;
+  scrollbar-width: thin !important;
+  scrollbar-color: rgba(0, 212, 255, 0.45) rgba(10, 16, 28, 0.6) !important;
+}
+
+.bot-panel .patient-list::-webkit-scrollbar {
+  width: 5px !important;
+}
+
+.bot-panel .patient-list::-webkit-scrollbar-track {
+  background: rgba(10, 16, 28, 0.6) !important;
+  border-radius: 4px !important;
+}
+
+.bot-panel .patient-list::-webkit-scrollbar-thumb {
+  background: rgba(0, 212, 255, 0.45) !important;
+  border-radius: 4px !important;
+  box-shadow: 0 0 6px rgba(0, 212, 255, 0.6) !important;
+}
+
+.bot-panel .patient-item {
+  flex-shrink: 0 !important;
+}
+
+/* Sembunyikan tombol window close bawaan extension jika ada */
+.bot-panel #btn-window-close-top {
+  display: none !important;
+}
+
+/* Bot Panel Footer Bar */
+.bot-panel .popup__site-link {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  padding: 6px 12px !important;
+  background: rgba(6, 11, 20, 0.95) !important;
+  border-top: 1px solid rgba(0, 212, 255, 0.15) !important;
+  margin-top: auto !important;
+}
+
+.bot-panel .popup__version {
+  color: #00d4ff !important;
+  font-weight: 800 !important;
+  font-size: 11px !important;
+  font-family: 'Orbitron', monospace !important;
+}
+
+.bot-panel .flickering-delayed {
+  color: #00d4ff !important;
+  font-size: 10.5px !important;
+  font-weight: 600 !important;
+}
+
+/* ════════════════════════════════════════════════════════════════════
+   PREMIUM CYBERPUNK SWEETALERT2 MODAL & NOTIFY STYLES
+   ════════════════════════════════════════════════════════════════════ */
+.swal2-container {
+  backdrop-filter: blur(14px) saturate(180%) brightness(0.65) !important;
+  -webkit-backdrop-filter: blur(14px) saturate(180%) brightness(0.65) !important;
+  background: rgba(3, 7, 18, 0.76) !important;
+  z-index: 9999999 !important;
+  transition: all 0.25s ease !important;
+  padding: 16px !important;
+}
+
+/* Universal Cyber Modal Card (Applies to all Swal popups) */
+.swal2-popup,
+.swal2-popup.cyber-premium-modal,
+.swal2-popup.cyber-swal-popup {
+  position: relative !important;
+  background: linear-gradient(160deg, rgba(15, 23, 42, 0.98) 0%, rgba(6, 11, 24, 0.99) 100%) !important;
+  border: 1px solid rgba(0, 212, 255, 0.35) !important;
+  border-radius: 22px !important;
+  box-shadow: 0 0 50px rgba(0, 212, 255, 0.16), 0 25px 65px rgba(0, 0, 0, 0.9), inset 0 1px 1px rgba(255, 255, 255, 0.14) !important;
+  padding: 28px 24px 24px !important;
+  width: 440px !important;
+  max-width: 94vw !important;
+  color: #f8fafc !important;
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif !important;
+  overflow: visible !important;
+  backdrop-filter: blur(25px) !important;
+  -webkit-backdrop-filter: blur(25px) !important;
+}
+
+/* Glowing Holographic Accent Line at Top of Modal */
+.swal2-popup::before,
+.swal2-popup.cyber-premium-modal::before,
+.swal2-popup.cyber-swal-popup::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 15% !important;
+  right: 15% !important;
+  height: 2px !important;
+  background: linear-gradient(90deg, transparent, #00d4ff 35%, #eab308 55%, #ff007f 80%, transparent) !important;
+  box-shadow: 0 0 14px rgba(0, 212, 255, 0.8), 0 0 22px rgba(234, 179, 8, 0.6) !important;
+  border-radius: 2px !important;
+  pointer-events: none !important;
+}
+
+/* Modal Body */
+.swal-neon-modal-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+}
+
+/* Glowing Neon Circular Badge Container */
+.swal-neon-icon-box {
+  position: relative;
+  width: 72px;
+  height: 72px;
+  margin: 0 auto 16px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.swal-neon-icon-glow {
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 0, 127, 0.45) 0%, rgba(255, 0, 127, 0.1) 60%, transparent 75%);
+  filter: blur(8px);
+  animation: neonHaloPulse 2.4s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+@keyframes neonHaloPulse {
+  0% { transform: scale(0.92); opacity: 0.6; }
+  100% { transform: scale(1.12); opacity: 1; }
+}
+
+.swal-neon-icon-circle {
+  position: relative;
+  width: 66px;
+  height: 66px;
+  border-radius: 50%;
+  background: linear-gradient(145deg, rgba(255, 0, 127, 0.18) 0%, rgba(15, 23, 42, 0.95) 100%);
+  border: 2px solid rgba(255, 0, 127, 0.65);
+  box-shadow: 0 0 22px rgba(255, 0, 127, 0.4), inset 0 0 12px rgba(255, 0, 127, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ff3399;
+  transition: all 0.3s ease;
+}
+
+.swal-neon-icon-circle svg {
+  filter: drop-shadow(0 0 6px rgba(255, 0, 127, 0.8));
+}
+
+/* Amber / Gold Variant (Warning & PRO Lock) */
+.swal-neon-icon-box--amber .swal-neon-icon-glow,
+.swal-neon-icon-glow--amber {
+  background: radial-gradient(circle, rgba(245, 158, 11, 0.55) 0%, rgba(245, 158, 11, 0.12) 60%, transparent 75%) !important;
+}
+.swal-neon-icon-circle--amber {
+  background: linear-gradient(145deg, rgba(245, 158, 11, 0.2) 0%, rgba(15, 23, 42, 0.95) 100%) !important;
+  border: 2px solid rgba(245, 158, 11, 0.8) !important;
+  box-shadow: 0 0 25px rgba(245, 158, 11, 0.45), inset 0 0 14px rgba(245, 158, 11, 0.25) !important;
+  color: #fbbf24 !important;
+}
+.swal-neon-icon-circle--amber svg {
+  filter: drop-shadow(0 0 8px rgba(245, 158, 11, 0.85)) !important;
+}
+
+/* Rose / Red Variant (Quota Limit & Errors) */
+.swal-neon-icon-box--rose .swal-neon-icon-glow,
+.swal-neon-icon-glow--rose {
+  background: radial-gradient(circle, rgba(244, 63, 94, 0.55) 0%, rgba(244, 63, 94, 0.12) 60%, transparent 75%) !important;
+}
+.swal-neon-icon-circle--rose {
+  background: linear-gradient(145deg, rgba(244, 63, 94, 0.2) 0%, rgba(15, 23, 42, 0.95) 100%) !important;
+  border: 2px solid rgba(244, 63, 94, 0.8) !important;
+  box-shadow: 0 0 25px rgba(244, 63, 94, 0.45), inset 0 0 14px rgba(244, 63, 94, 0.25) !important;
+  color: #f43f5e !important;
+}
+.swal-neon-icon-circle--rose svg {
+  filter: drop-shadow(0 0 8px rgba(244, 63, 94, 0.85)) !important;
+}
+
+/* Cyan / Blue Variant (Info & Process) */
+.swal-neon-icon-box--cyan .swal-neon-icon-glow,
+.swal-neon-icon-glow--cyan {
+  background: radial-gradient(circle, rgba(0, 212, 255, 0.55) 0%, rgba(0, 212, 255, 0.12) 60%, transparent 75%) !important;
+}
+.swal-neon-icon-circle--cyan {
+  background: linear-gradient(145deg, rgba(0, 212, 255, 0.2) 0%, rgba(15, 23, 42, 0.95) 100%) !important;
+  border: 2px solid rgba(0, 212, 255, 0.8) !important;
+  box-shadow: 0 0 25px rgba(0, 212, 255, 0.45), inset 0 0 14px rgba(0, 212, 255, 0.25) !important;
+  color: #00d4ff !important;
+}
+.swal-neon-icon-circle--cyan svg {
+  filter: drop-shadow(0 0 8px rgba(0, 212, 255, 0.85)) !important;
+}
+
+/* Pill Badges */
+.swal-neon-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: 9999px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.swal-neon-pill--amber {
+  background: rgba(245, 158, 11, 0.15);
+  border: 1px solid rgba(245, 158, 11, 0.4);
+  color: #fef08a;
+  box-shadow: 0 0 12px rgba(245, 158, 11, 0.2);
+}
+.swal-neon-pill--rose {
+  background: rgba(244, 63, 94, 0.15);
+  border: 1px solid rgba(244, 63, 94, 0.4);
+  color: #fecdd3;
+  box-shadow: 0 0 12px rgba(244, 63, 94, 0.2);
+}
+
+.swal-neon-subtitle {
+  font-size: 0.88rem;
+  color: #94a3b8;
+  margin: 0 0 14px 0;
+  line-height: 1.5;
+}
+
+/* Interactive Inner Glass Card */
+.swal-neon-card {
+  width: 100%;
+  background: rgba(15, 23, 42, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 14px;
+  padding: 14px 16px;
+  margin-bottom: 14px;
+  text-align: left;
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.05);
+}
+.swal-neon-card--amber {
+  border-color: rgba(245, 158, 11, 0.3);
+  background: linear-gradient(160deg, rgba(245, 158, 11, 0.08) 0%, rgba(15, 23, 42, 0.85) 100%);
+}
+.swal-neon-card--rose {
+  border-color: rgba(244, 63, 94, 0.3);
+  background: linear-gradient(160deg, rgba(244, 63, 94, 0.08) 0%, rgba(15, 23, 42, 0.85) 100%);
+}
+
+.swal-neon-card__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.swal-neon-card__badge-free,
+.swal-neon-card__badge-rose {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #fef08a;
+}
+.swal-neon-card__badge-rose {
+  color: #fca5a5;
+}
+
+.swal-neon-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+}
+.swal-neon-dot--amber {
+  background: #fbbf24;
+  box-shadow: 0 0 8px #fbbf24;
+  animation: neonHaloPulse 1.8s infinite alternate;
+}
+.swal-neon-dot--rose {
+  background: #f43f5e;
+  box-shadow: 0 0 8px #f43f5e;
+  animation: neonHaloPulse 1.8s infinite alternate;
+}
+
+.swal-neon-card__badge-tier {
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.08);
+  color: #cbd5e1;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.swal-neon-card__desc {
+  font-size: 0.82rem;
+  color: #cbd5e1;
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+
+.swal-neon-features-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 6px 10px;
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px dashed rgba(255, 255, 255, 0.12);
+}
+
+.swal-feat-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.76rem;
+  font-weight: 600;
+}
+.swal-feat-item--active {
+  color: #34d399;
+}
+.swal-feat-item--locked {
+  color: #64748b;
+}
+
+/* Quota Progress Bar */
+.swal-quota-bar-wrapper {
+  width: 100%;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 9999px;
+  overflow: hidden;
+  margin: 8px 0;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.swal-quota-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #f59e0b, #ef4444);
+  box-shadow: 0 0 10px rgba(239, 68, 68, 0.8);
+  border-radius: 9999px;
+  transition: width 0.6s ease;
+}
+
+/* Typography Overrides */
+.swal-neon-title,
+.swal2-title,
+.swal2-popup.cyber-premium-modal .swal2-title,
+.swal2-popup.cyber-swal-popup .swal2-title,
+.cyber-swal-title {
+  font-family: 'Plus Jakarta Sans', sans-serif !important;
+  font-size: 1.25rem !important;
+  font-weight: 800 !important;
+  color: #ffffff !important;
+  letter-spacing: -0.02em !important;
+  margin: 10px 0 8px 0 !important;
+  padding: 0 !important;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6) !important;
+}
+
+.swal-neon-desc,
+.swal2-html-container,
+.swal2-popup.cyber-premium-modal .swal2-html-container,
+.cyber-swal-text {
+  font-family: 'Plus Jakarta Sans', sans-serif !important;
+  font-size: 0.9rem !important;
+  color: #94a3b8 !important;
+  line-height: 1.58 !important;
+  margin: 4px 0 14px 0 !important;
+  padding: 0 !important;
+}
+
+.swal-neon-tip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.78rem !important;
+  color: #94a3b8 !important;
+  background: rgba(15, 23, 42, 0.75) !important;
+  border: 1px dashed rgba(0, 212, 255, 0.25) !important;
+  border-radius: 10px !important;
+  padding: 8px 14px !important;
+  margin-top: 4px !important;
+  line-height: 1.45 !important;
+  text-align: left;
+}
+.swal-neon-tip svg {
+  flex-shrink: 0;
+  color: #00d4ff;
+}
+.swal-neon-tip--pro {
+  border-color: rgba(245, 158, 11, 0.3) !important;
+}
+.swal-neon-tip--pro svg {
+  color: #fbbf24;
+}
+
+/* Actions Container */
+.cyber-premium-actions,
+.swal2-actions,
+.swal2-popup.cyber-premium-modal .swal2-actions,
+.swal2-popup.cyber-swal-popup .swal2-actions {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 12px !important;
+  margin: 20px 0 2px 0 !important;
+  width: 100% !important;
+}
+
+/* Cancel Button */
+.cyber-premium-cancel,
+.cyber-swal-cancel-btn,
+.swal2-styled.swal2-cancel {
+  background: rgba(255, 255, 255, 0.06) !important;
+  color: #cbd5e1 !important;
+  font-family: 'Plus Jakarta Sans', sans-serif !important;
+  font-size: 0.88rem !important;
+  font-weight: 600 !important;
+  border-radius: 12px !important;
+  padding: 10px 22px !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  cursor: pointer !important;
+  transition: all 0.22s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  outline: none !important;
+}
+
+.cyber-premium-cancel:hover,
+.cyber-swal-cancel-btn:hover,
+.swal2-styled.swal2-cancel:hover {
+  background: rgba(255, 255, 255, 0.12) !important;
+  color: #ffffff !important;
+  border-color: rgba(255, 255, 255, 0.3) !important;
+  transform: translateY(-1px) !important;
+}
+
+/* Confirm Button (Magenta default for destructive/logout) */
+.cyber-premium-confirm,
+.cyber-swal-confirm-btn {
+  background: linear-gradient(135deg, #ff007f 0%, #d90066 100%) !important;
+  color: #ffffff !important;
+  font-family: 'Plus Jakarta Sans', sans-serif !important;
+  font-size: 0.88rem !important;
+  font-weight: 700 !important;
+  border-radius: 12px !important;
+  padding: 11px 24px !important;
+  border: 1px solid rgba(255, 100, 180, 0.5) !important;
+  cursor: pointer !important;
+  box-shadow: 0 0 18px rgba(255, 0, 127, 0.42), 0 4px 12px rgba(0, 0, 0, 0.4) !important;
+  transition: all 0.22s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  outline: none !important;
+}
+
+.cyber-premium-confirm:hover,
+.cyber-swal-confirm-btn:hover {
+  background: linear-gradient(135deg, #ff1a8c 0%, #e60070 100%) !important;
+  box-shadow: 0 0 28px rgba(255, 0, 127, 0.7), 0 6px 16px rgba(0, 0, 0, 0.5) !important;
+  transform: translateY(-1.5px) !important;
+}
+
+/* Universal Confirm Button & Cyan Variant */
+.swal2-styled.swal2-confirm,
+.cyber-premium-confirm--cyan {
+  background: linear-gradient(135deg, #00d4ff 0%, #0077fe 100%) !important;
+  color: #ffffff !important;
+  font-family: 'Plus Jakarta Sans', sans-serif !important;
+  font-size: 0.88rem !important;
+  font-weight: 700 !important;
+  border-radius: 12px !important;
+  padding: 11px 26px !important;
+  border: 1px solid rgba(0, 212, 255, 0.6) !important;
+  cursor: pointer !important;
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.42), 0 4px 12px rgba(0, 0, 0, 0.4) !important;
+  transition: all 0.22s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  outline: none !important;
+}
+
+.swal2-styled.swal2-confirm:hover,
+.cyber-premium-confirm--cyan:hover {
+  background: linear-gradient(135deg, #2ae0ff 0%, #0088ff 100%) !important;
+  box-shadow: 0 0 30px rgba(0, 212, 255, 0.75), 0 6px 18px rgba(0, 0, 0, 0.5) !important;
+  transform: translateY(-1.5px) !important;
+}
+
+/* ============================================================
+   BEAUTIFIED SWEETALERT2 DEFAULT ICONS (Holographic Badges)
+   ============================================================ */
+
+.swal2-icon {
+  width: 68px !important;
+  height: 68px !important;
+  margin: 4px auto 14px auto !important;
+  border-width: 2px !important;
+  border-style: solid !important;
+  border-radius: 50% !important;
+  position: relative !important;
+  box-sizing: border-box !important;
+  transition: all 0.3s ease !important;
+  animation: swalPulseHalo 2.5s ease-in-out infinite alternate !important;
+}
+
+@keyframes swalPulseHalo {
+  0% { transform: scale(0.96); filter: brightness(0.95); }
+  100% { transform: scale(1.04); filter: brightness(1.15); }
+}
+
+/* Warning Icon (Amber / Gold Hologram) */
+.swal2-icon.swal2-warning {
+  border-color: rgba(245, 158, 11, 0.85) !important;
+  color: #fbbf24 !important;
+  background: radial-gradient(circle, rgba(245, 158, 11, 0.2) 0%, rgba(15, 23, 42, 0.95) 80%) !important;
+  box-shadow: 0 0 28px rgba(245, 158, 11, 0.45), inset 0 0 14px rgba(245, 158, 11, 0.22) !important;
+}
+.swal2-icon.swal2-warning .swal2-icon-content {
+  font-size: 2.2rem !important;
+  font-weight: 800 !important;
+  color: #fef08a !important;
+  text-shadow: 0 0 12px rgba(245, 158, 11, 0.8) !important;
+  line-height: 64px !important;
+}
+
+/* Error Icon (Rose / Crimson Hologram) */
+.swal2-icon.swal2-error {
+  border-color: rgba(244, 63, 94, 0.85) !important;
+  color: #ff3366 !important;
+  background: radial-gradient(circle, rgba(244, 63, 94, 0.2) 0%, rgba(15, 23, 42, 0.95) 80%) !important;
+  box-shadow: 0 0 28px rgba(244, 63, 94, 0.5), inset 0 0 14px rgba(244, 63, 94, 0.25) !important;
+}
+.swal2-icon.swal2-error .swal2-x-mark-line-left,
+.swal2-icon.swal2-error .swal2-x-mark-line-right {
+  background-color: #ff3366 !important;
+  box-shadow: 0 0 8px rgba(255, 51, 102, 0.8) !important;
+}
+
+/* Success Icon (Emerald / Cyan Hologram) */
+.swal2-icon.swal2-success {
+  border-color: rgba(16, 185, 129, 0.85) !important;
+  color: #10b981 !important;
+  background: radial-gradient(circle, rgba(16, 185, 129, 0.2) 0%, rgba(15, 23, 42, 0.95) 80%) !important;
+  box-shadow: 0 0 28px rgba(16, 185, 129, 0.5), inset 0 0 14px rgba(16, 185, 129, 0.25) !important;
+}
+.swal2-icon.swal2-success [class^='swal2-success-line'] {
+  background-color: #10b981 !important;
+  box-shadow: 0 0 8px rgba(16, 185, 129, 0.8) !important;
+}
+.swal2-icon.swal2-success .swal2-success-ring {
+  border: 4px solid rgba(16, 185, 129, 0.3) !important;
+}
+
+/* Info Icon (Cyber Cyan Hologram) */
+.swal2-icon.swal2-info {
+  border-color: rgba(0, 212, 255, 0.85) !important;
+  color: #00d4ff !important;
+  background: radial-gradient(circle, rgba(0, 212, 255, 0.2) 0%, rgba(15, 23, 42, 0.95) 80%) !important;
+  box-shadow: 0 0 28px rgba(0, 212, 255, 0.5), inset 0 0 14px rgba(0, 212, 255, 0.25) !important;
+}
+.swal2-icon.swal2-info .swal2-icon-content {
+  font-size: 2.2rem !important;
+  font-weight: 800 !important;
+  color: #00d4ff !important;
+  text-shadow: 0 0 12px rgba(0, 212, 255, 0.8) !important;
+}
+
+/* Question Icon (Violet Hologram) */
+.swal2-icon.swal2-question {
+  border-color: rgba(168, 85, 247, 0.85) !important;
+  color: #a855f7 !important;
+  background: radial-gradient(circle, rgba(168, 85, 247, 0.2) 0%, rgba(15, 23, 42, 0.95) 80%) !important;
+  box-shadow: 0 0 28px rgba(168, 85, 247, 0.5), inset 0 0 14px rgba(168, 85, 247, 0.25) !important;
+}
+.swal2-icon.swal2-question .swal2-icon-content {
+  font-size: 2.2rem !important;
+  font-weight: 800 !important;
+  color: #c084fc !important;
+  text-shadow: 0 0 12px rgba(168, 85, 247, 0.8) !important;
+}
+
+/* Animations */
+@keyframes cyberModalPopIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.92) translateY(10px);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1.02) translateY(-2px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes cyberModalPopOut {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.92) translateY(12px);
+  }
+}
+
+.swal2-modal-popin {
+  animation: cyberModalPopIn 0.24s cubic-bezier(0.16, 1, 0.3, 1) forwards !important;
+}
+
+.swal2-modal-popout {
+  animation: cyberModalPopOut 0.18s cubic-bezier(0.4, 0, 1, 1) forwards !important;
+}
+
+/* Floating Cyber Toast */
+.cyber-swal-toast,
+.swal2-toast {
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.96) 0%, rgba(8, 14, 28, 0.98) 100%) !important;
+  border: 1px solid rgba(0, 212, 255, 0.4) !important;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.75), 0 0 20px rgba(0, 212, 255, 0.25) !important;
+  border-radius: 12px !important;
+  backdrop-filter: blur(16px) !important;
+  font-family: 'Plus Jakarta Sans', sans-serif !important;
+  padding: 10px 16px !important;
+}
+.cyber-swal-toast .swal2-title,
+.swal2-toast .swal2-title {
+  font-size: 0.88rem !important;
+  font-weight: 700 !important;
+  margin: 0 !important;
+  color: #f1f5f9 !important;
+}
+.swal2-timer-progress-bar {
+  background: linear-gradient(90deg, #00d4ff, #ff007f) !important;
+  height: 3px !important;
+}
+
+/* ── SMART INTERACTIVE CTA BUTTON IN EMPTY WORKSPACE ── */
+.hud-empty-cta-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 7px !important;
+  margin-top: 10px !important;
+  padding: 7px 14px !important;
+  background: linear-gradient(135deg, rgba(0, 212, 255, 0.15) 0%, rgba(13, 21, 39, 0.7) 100%) !important;
+  border: 1px solid rgba(0, 212, 255, 0.45) !important;
+  border-radius: 8px !important;
+  color: #00f0ff !important;
+  font-family: 'Plus Jakarta Sans', sans-serif !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  cursor: pointer !important;
+  letter-spacing: 0.3px !important;
+  box-shadow: 0 0 14px rgba(0, 212, 255, 0.2), inset 0 0 8px rgba(0, 212, 255, 0.1) !important;
+  transition: all 0.22s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  text-decoration: none !important;
+}
+
+.hud-empty-cta-btn:hover {
+  background: linear-gradient(135deg, rgba(0, 212, 255, 0.3) 0%, rgba(13, 21, 39, 0.9) 100%) !important;
+  border-color: #00d4ff !important;
+  color: #ffffff !important;
+  box-shadow: 0 0 22px rgba(0, 212, 255, 0.45), 0 2px 8px rgba(0, 0, 0, 0.5) !important;
+  transform: translateY(-1px) scale(1.02) !important;
+}
+
+.hud-empty-cta-btn svg {
+  stroke: currentColor !important;
+  transition: transform 0.22s ease !important;
+}
+
+.hud-empty-cta-btn:hover svg {
+  transform: translateX(2px) !important;
+}
+
+/* ── NEON MINI PROGRESS BAR ── */
+.hud-progress-track {
+  width: 100% !important;
+  height: 4px !important;
+  background: rgba(15, 23, 42, 0.8) !important;
+  border: 1px solid rgba(0, 212, 255, 0.25) !important;
+  border-radius: 999px !important;
+  overflow: hidden !important;
+  margin-top: 4px !important;
+  position: relative !important;
+  box-sizing: border-box !important;
+}
+
+.hud-progress-fill {
+  height: 100% !important;
+  background: linear-gradient(90deg, #00d4ff 0%, #10b981 50%, #34d399 100%) !important;
+  box-shadow: 0 0 10px rgba(0, 212, 255, 0.8), 0 0 5px rgba(52, 211, 153, 0.8) !important;
+  border-radius: 999px !important;
+  transition: width 0.35s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+/* ── MODERN BNBA (UMUM & SEKOLAH) UI/UX STYLES ── */
+.bnba-tab-content {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 10px !important;
+  padding: 2px 0 10px !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+.bnba-header-card {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  padding: 8px 12px !important;
+  background: rgba(15, 23, 42, 0.7) !important;
+  backdrop-filter: blur(12px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-radius: var(--radius) !important;
+  box-shadow: var(--shadow-sm) !important;
+}
+
+.bnba-title-group {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+}
+
+.bnba-title-group h3 {
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.3px !important;
+  color: #f8fafc !important;
+  margin: 0 !important;
+}
+
+.bnba-badge {
+  font-size: 9px !important;
+  font-weight: 700 !important;
+  padding: 2px 7px !important;
+  border-radius: 9999px !important;
+  letter-spacing: 0.5px !important;
+  text-transform: uppercase !important;
+}
+
+.bnba-badge--sekolah {
+  background: rgba(0, 212, 255, 0.15) !important;
+  color: #38bdf8 !important;
+  border: 1px solid rgba(0, 212, 255, 0.35) !important;
+  box-shadow: 0 0 8px rgba(0, 212, 255, 0.2) !important;
+}
+
+.bnba-badge--umum {
+  background: rgba(16, 185, 129, 0.15) !important;
+  color: #34d399 !important;
+  border: 1px solid rgba(52, 211, 153, 0.35) !important;
+  box-shadow: 0 0 8px rgba(16, 185, 129, 0.2) !important;
+}
+
+.bnba-header-actions {
+  display: flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+}
+
+.bnba-icon-btn {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  color: #94a3b8 !important;
+  border-radius: var(--radius-sm) !important;
+  padding: 3px 7px !important;
+  font-size: 10px !important;
+  font-weight: 600 !important;
+  cursor: pointer !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 4px !important;
+  transition: all 0.2s ease !important;
+}
+
+.bnba-icon-btn:hover {
+  background: rgba(255, 255, 255, 0.1) !important;
+  color: #f8fafc !important;
+  border-color: rgba(255, 255, 255, 0.25) !important;
+}
+
+.bnba-card {
+  background: rgba(15, 23, 42, 0.7) !important;
+  backdrop-filter: blur(12px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-radius: var(--radius) !important;
+  padding: 10px 12px !important;
+  position: relative !important;
+  transition: all 0.2s ease !important;
+}
+
+.bnba-card--sekolah {
+  border-left: 3px solid #38bdf8 !important;
+}
+
+.bnba-card--umum {
+  border-left: 3px solid #34d399 !important;
+}
+
+.bnba-card-label {
+  font-size: 10px !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+  color: #94a3b8 !important;
+  margin-bottom: 7px !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 5px !important;
+}
+
+.bnba-hero-btn {
+  width: 100% !important;
+  height: 38px !important;
+  font-size: 11.5px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.4px !important;
+  border-radius: var(--radius) !important;
+  cursor: pointer !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 7px !important;
+  border: none !important;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35) !important;
+}
+
+.bnba-hero-btn--sekolah {
+  background: linear-gradient(135deg, #0284c7 0%, #00d4ff 100%) !important;
+  color: #ffffff !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) !important;
+}
+
+.bnba-hero-btn--sekolah:hover {
+  background: linear-gradient(135deg, #0369a1 0%, #38bdf8 100%) !important;
+  box-shadow: 0 0 18px rgba(0, 212, 255, 0.45) !important;
+  transform: translateY(-1px) !important;
+}
+
+.bnba-hero-btn--umum {
+  background: linear-gradient(135deg, #059669 0%, #10b981 100%) !important;
+  color: #ffffff !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) !important;
+}
+
+.bnba-hero-btn--umum:hover {
+  background: linear-gradient(135deg, #047857 0%, #34d399 100%) !important;
+  box-shadow: 0 0 18px rgba(16, 185, 129, 0.45) !important;
+  transform: translateY(-1px) !important;
+}
+
+.bnba-progress-track {
+  height: 7px !important;
+  width: 100% !important;
+  background: #0b1320 !important;
+  border-radius: 9999px !important;
+  overflow: hidden !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  margin: 6px 0 !important;
+}
+
+.bnba-progress-fill--sekolah {
+  height: 100% !important;
+  width: 0% !important;
+  background: linear-gradient(90deg, #0284c7, #00d4ff) !important;
+  box-shadow: 0 0 10px rgba(0, 212, 255, 0.5) !important;
+  transition: width 0.3s ease !important;
+}
+
+.bnba-progress-fill--umum {
+  height: 100% !important;
+  width: 0% !important;
+  background: linear-gradient(90deg, #059669, #34d399) !important;
+  box-shadow: 0 0 10px rgba(52, 211, 153, 0.5) !important;
+  transition: width 0.3s ease !important;
+}
+
+.bnba-export-bar {
+  display: flex !important;
+  gap: 8px !important;
+  align-items: center !important;
+  margin-top: 6px !important;
+}
+
+.bnba-btn-excel {
+  flex: 1 !important;
+  height: 34px !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  background: rgba(16, 185, 129, 0.15) !important;
+  border: 1px solid #10b981 !important;
+  color: #34d399 !important;
+  border-radius: var(--radius-sm) !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 6px !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+}
+
+.bnba-btn-excel:hover {
+  background: #10b981 !important;
+  color: #ffffff !important;
+  box-shadow: 0 0 15px rgba(16, 185, 129, 0.4) !important;
+}
+
+.bnba-auto-dl-wrapper {
+  display: flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  font-size: 10px !important;
+  color: #94a3b8 !important;
+  cursor: pointer !important;
+  user-select: none !important;
+  margin-top: 5px !important;
+}
+
+.bnba-auto-dl-wrapper input[type="checkbox"] {
+  accent-color: #00d4ff !important;
+  cursor: pointer !important;
+}
+
+.bnba-accordion-toggle {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  padding: 7px 10px !important;
+  background: rgba(15, 23, 42, 0.5) !important;
+  border: 1px dashed rgba(255, 255, 255, 0.12) !important;
+  border-radius: var(--radius-sm) !important;
+  cursor: pointer !important;
+  font-size: 10px !important;
+  font-weight: 600 !important;
+  color: #94a3b8 !important;
+  transition: all 0.2s ease !important;
+}
+
+.bnba-accordion-toggle:hover {
+  background: rgba(255, 255, 255, 0.04) !important;
+  color: #cbd5e1 !important;
+  border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+/* ════════════════════════════════════════════════════════════════════
+   CYBERPUNK SCI-FI BOT PANEL & RIGHT MENU MODERN POLISH
+   ════════════════════════════════════════════════════════════════════ */
+
+/* 1. Bot Panel Top Bar & Ping Connection Bar */
+.bot-panel-top-bar {
+  padding: 8px 12px 6px 12px !important;
+  background: rgba(6, 10, 18, 0.95) !important;
+  border-bottom: 1px solid rgba(0, 212, 255, 0.16) !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.35) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+}
+
+.ping-connection-bar {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  width: 100% !important;
+}
+
+.ping-pill {
+  flex: 1 !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 9px !important;
+  background: linear-gradient(135deg, rgba(12, 19, 32, 0.92) 0%, rgba(8, 14, 25, 0.95) 100%) !important;
+  border: 1px solid rgba(0, 212, 255, 0.25) !important;
+  border-radius: 10px !important;
+  padding: 6px 11px !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06), 0 2px 8px rgba(0, 0, 0, 0.4) !important;
+  transition: all 0.22s ease !important;
+  user-select: none !important;
+}
+
+.ping-pill:hover {
+  border-color: rgba(0, 212, 255, 0.6) !important;
+  box-shadow: 0 0 14px rgba(0, 212, 255, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.12) !important;
+  transform: translateY(-1px) !important;
+}
+
+.ping-dot {
+  width: 8px !important;
+  height: 8px !important;
+  border-radius: 50% !important;
+  background: #10b981 !important;
+  box-shadow: 0 0 8px #10b981, 0 0 16px rgba(16, 185, 129, 0.7) !important;
+  flex-shrink: 0 !important;
+  animation: pingPulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite !important;
+}
+
+@keyframes pingPulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.65; transform: scale(0.85); }
+}
+
+.ping-text {
+  display: flex !important;
+  flex-direction: column !important;
+  min-width: 0 !important;
+  gap: 1px !important;
+}
+
+.ping-label {
+  font-size: 10px !important;
+  font-weight: 700 !important;
+  color: #94a3b8 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+  line-height: 1.2 !important;
+}
+
+.ping-value {
+  font-size: 12px !important;
+  font-weight: 800 !important;
+  color: #34d399 !important;
+  font-family: 'Plus Jakarta Sans', monospace !important;
+  line-height: 1.2 !important;
+  text-shadow: 0 0 8px rgba(52, 211, 153, 0.4) !important;
+}
+
+.ping-refresh-btn {
+  width: 34px !important;
+  height: 34px !important;
+  border-radius: 8px !important;
+  background: rgba(12, 19, 32, 0.9) !important;
+  border: 1px solid rgba(0, 212, 255, 0.35) !important;
+  color: #00d4ff !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer !important;
+  transition: all 0.25s ease !important;
+  flex-shrink: 0 !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3) !important;
+}
+
+.ping-refresh-btn:hover {
+  border-color: #00f0ff !important;
+  color: #ffffff !important;
+  box-shadow: 0 0 14px rgba(0, 240, 255, 0.45) !important;
+  transform: rotate(45deg) !important;
+}
+
+/* 2. Unified Cyber Toolbar Row & Controls */
+.hud-toolbar-row {
+  display: flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  margin-bottom: 8px !important;
+  width: 100% !important;
+}
+
+.hud-category-wrapper {
+  width: 90px !important;
+  flex-shrink: 0 !important;
+  position: relative !important;
+}
+
+.hud-pill-select,
+.select__wrapper .field__select {
+  height: 32px !important;
+  padding: 4px 20px 4px 9px !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  border-radius: 8px !important;
+  background: rgba(10, 16, 28, 0.9) !important;
+  border: 1px solid rgba(0, 212, 255, 0.3) !important;
+  color: #f1f5f9 !important;
+  outline: none !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06) !important;
+}
+
+.hud-pill-select:hover,
+.select__wrapper .field__select:hover {
+  border-color: rgba(0, 212, 255, 0.6) !important;
+}
+
+.hud-pill-select:focus,
+.select__wrapper .field__select:focus {
+  border-color: #00f0ff !important;
+  box-shadow: 0 0 10px rgba(0, 240, 255, 0.4) !important;
+}
+
+.hud-action-pills {
+  display: flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  margin-left: auto !important;
+  flex-shrink: 0 !important;
+}
+
+/* 3. Cyber Action Buttons (Template, Upload Excel, Scan Tabel) */
+.hud-btn,
+.pendaftaran-fab__btn {
+  height: 32px !important;
+  padding: 0 10px !important;
+  font-size: 10.5px !important;
+  border-radius: 8px !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.3px !important;
+  white-space: nowrap !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 5px !important;
+  cursor: pointer !important;
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  user-select: none !important;
+  box-sizing: border-box !important;
+}
+
+/* Cyan Action Button */
+.hud-btn--cyan,
+.hud-btn.btn--primary,
+#btn-scan-tabel-pelayanan,
+#btn-scan-tabel-hadir,
+#btn-download-template,
+#btn-fetch-top {
+  background: linear-gradient(135deg, rgba(0, 212, 255, 0.16) 0%, rgba(0, 150, 255, 0.1) 100%) !important;
+  border: 1.2px solid #00d4ff !important;
+  color: #00f0ff !important;
+  box-shadow: 0 0 10px rgba(0, 212, 255, 0.22), inset 0 0 6px rgba(0, 212, 255, 0.1) !important;
+}
+
+.hud-btn--cyan:hover,
+.hud-btn.btn--primary:hover,
+#btn-scan-tabel-pelayanan:hover,
+#btn-scan-tabel-hadir:hover,
+#btn-download-template:hover,
+#btn-fetch-top:hover {
+  background: linear-gradient(135deg, rgba(0, 212, 255, 0.32) 0%, rgba(0, 150, 255, 0.22) 100%) !important;
+  color: #ffffff !important;
+  border-color: #38bdf8 !important;
+  box-shadow: 0 0 18px rgba(0, 240, 255, 0.6), inset 0 0 8px rgba(0, 212, 255, 0.2) !important;
+  transform: translateY(-1px) !important;
+}
+
+/* Glass Emerald Button (Excel) */
+.hud-btn--glass,
+#btn-upload-excel,
+#lbl-upload-excel-hadir,
+#lbl-upload-excel-pelayanan {
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.14) 0%, rgba(5, 150, 105, 0.08) 100%) !important;
+  border: 1.2px solid rgba(52, 211, 153, 0.5) !important;
+  color: #34d399 !important;
+  box-shadow: 0 0 8px rgba(52, 211, 153, 0.18) !important;
+}
+
+.hud-btn--glass:hover,
+#btn-upload-excel:hover,
+#lbl-upload-excel-hadir:hover,
+#lbl-upload-excel-pelayanan:hover {
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.28) 0%, rgba(5, 150, 105, 0.2) 100%) !important;
+  color: #ffffff !important;
+  border-color: #34d399 !important;
+  box-shadow: 0 0 16px rgba(52, 211, 153, 0.45) !important;
+  transform: translateY(-1px) !important;
+}
+
+.hud-btn--icon-glass {
+  width: 32px !important;
+  height: 32px !important;
+  padding: 0 !important;
+  justify-content: center !important;
+  background: rgba(12, 19, 32, 0.9) !important;
+  border: 1px solid rgba(0, 212, 255, 0.3) !important;
+  color: #38bdf8 !important;
+  border-radius: 8px !important;
+}
+
+.hud-btn--icon-glass:hover {
+  border-color: #00f0ff !important;
+  color: #ffffff !important;
+  box-shadow: 0 0 12px rgba(0, 240, 255, 0.4) !important;
+  transform: translateY(-1px) !important;
+}
+
+/* 4. Filter Rows (School & Class Dropdowns) */
+.hud-filter-row,
+#hadir-school-class-bar {
+  display: flex !important;
+  gap: 6px !important;
+  margin-bottom: 8px !important;
+  width: 100% !important;
+}
+
+.hud-search-select-wrapper {
+  position: relative !important;
+  min-width: 0 !important;
+}
+
+.hud-search-select,
+#select-sekolah-hadir,
+#select-kelas-hadir {
+  height: 32px !important;
+  padding: 4px 26px 4px 10px !important;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  border-radius: 8px !important;
+  background: rgba(10, 16, 28, 0.9) !important;
+  border: 1px solid rgba(0, 212, 255, 0.25) !important;
+  color: #cbd5e1 !important;
+  width: 100% !important;
+  outline: none !important;
+  text-overflow: ellipsis !important;
+  transition: all 0.2s ease !important;
+}
+
+.hud-search-select:focus,
+#select-sekolah-hadir:focus,
+#select-kelas-hadir:focus {
+  border-color: #00f0ff !important;
+  box-shadow: 0 0 8px rgba(0, 240, 255, 0.35) !important;
+}
+
+/* 5. Summary Status Bars */
+.hud-summary-bar,
+#hadir-summary-bar {
+  background: linear-gradient(135deg, rgba(13, 21, 36, 0.85) 0%, rgba(8, 13, 23, 0.92) 100%) !important;
+  border: 1px solid rgba(0, 212, 255, 0.22) !important;
+  border-radius: 9px !important;
+  padding: 7px 12px !important;
+  margin-bottom: 8px !important;
+  font-size: 11px !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.35) !important;
+}
+
+.hud-summary-counts,
+#hadir-count-summary {
+  font-weight: 600 !important;
+  color: #94a3b8 !important;
+  letter-spacing: 0.2px !important;
+}
+
+.hud-num-zero {
+  color: #f8fafc !important;
+  font-weight: 800 !important;
+}
+
+.hud-num-green {
+  color: #34d399 !important;
+  font-weight: 800 !important;
+}
+
+.hud-summary-mode-select {
+  height: 24px !important;
+  padding: 2px 6px !important;
+  font-size: 10px !important;
+  font-weight: 700 !important;
+  border-radius: 6px !important;
+  background: rgba(10, 16, 28, 0.95) !important;
+  border: 1px solid rgba(0, 212, 255, 0.35) !important;
+  color: #38bdf8 !important;
+  outline: none !important;
+  cursor: pointer !important;
+}
+
+.hud-pill-btn--danger,
+#btn-clear-hadir,
+#btn-clear-excel {
+  padding: 3px 8px !important;
+  font-size: 10px !important;
+  font-weight: 700 !important;
+  border-radius: 6px !important;
+  background: rgba(239, 68, 68, 0.12) !important;
+  border: 1px solid rgba(239, 68, 68, 0.4) !important;
+  color: #f87171 !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+}
+
+.hud-pill-btn--danger:hover,
+#btn-clear-hadir:hover,
+#btn-clear-excel:hover {
+  background: rgba(239, 68, 68, 0.25) !important;
+  color: #ffffff !important;
+  box-shadow: 0 0 10px rgba(239, 68, 68, 0.4) !important;
+}
+
+/* 6. Glowing Holographic Empty State Workspace */
+.hud-empty-workspace {
+  background: radial-gradient(circle at 50% 32%, rgba(0, 212, 255, 0.05) 0%, rgba(5, 7, 12, 0.95) 75%) !important;
+  border: 1px dashed rgba(0, 212, 255, 0.22) !important;
+  border-radius: 14px !important;
+  padding: 24px 18px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  position: relative !important;
+  overflow: hidden !important;
+  margin-bottom: 4px !important;
+}
+
+.hud-circuit-watermark {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  opacity: 0.14 !important;
+  pointer-events: none !important;
+}
+
+.hud-ecg-glass-card {
+  width: 90px !important;
+  height: 90px !important;
+  border-radius: 22px !important;
+  background: linear-gradient(145deg, rgba(15, 23, 42, 0.85) 0%, rgba(8, 14, 26, 0.92) 100%) !important;
+  border: 1.5px solid rgba(0, 212, 255, 0.38) !important;
+  box-shadow: 0 0 28px rgba(0, 212, 255, 0.18), inset 0 0 16px rgba(0, 212, 255, 0.08) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin-bottom: 12px !important;
+  position: relative !important;
+}
+
+.hud-empty-title {
+  font-family: 'Orbitron', -apple-system, sans-serif !important;
+  font-size: 13px !important;
+  font-weight: 800 !important;
+  letter-spacing: 1.6px !important;
+  background: linear-gradient(135deg, #ffffff 40%, #00d4ff 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  text-shadow: 0 0 16px rgba(0, 212, 255, 0.4) !important;
+  margin: 10px 0 8px 0 !important;
+}
+
+.hud-empty-instruction-card {
+  background: rgba(12, 19, 34, 0.75) !important;
+  border: 1px solid rgba(0, 212, 255, 0.2) !important;
+  border-radius: 11px !important;
+  padding: 12px 16px !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.45) !important;
+  line-height: 1.55 !important;
+  color: #94a3b8 !important;
+  font-size: 11.5px !important;
+  max-width: 90% !important;
+}
+
+.hud-empty-instruction-card strong {
+  color: #38bdf8 !important;
+  font-weight: 700 !important;
+}
+
+.hud-empty-cta-btn {
+  margin-top: 10px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 6px !important;
+  padding: 7px 16px !important;
+  background: linear-gradient(135deg, rgba(0, 212, 255, 0.18) 0%, rgba(0, 150, 255, 0.1) 100%) !important;
+  border: 1.2px solid #00d4ff !important;
+  border-radius: 8px !important;
+  color: #00f0ff !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.3px !important;
+  box-shadow: 0 0 12px rgba(0, 212, 255, 0.22) !important;
+  cursor: pointer !important;
+  transition: all 0.22s ease !important;
+}
+
+.hud-empty-cta-btn:hover {
+  background: linear-gradient(135deg, rgba(0, 212, 255, 0.35) 0%, rgba(0, 150, 255, 0.25) 100%) !important;
+  color: #ffffff !important;
+  box-shadow: 0 0 20px rgba(0, 240, 255, 0.6) !important;
+  transform: translateY(-1.5px) !important;
+}
